@@ -37,6 +37,7 @@ import Kurti from './pages/Kurti'
 import Jwellery from './pages/Jwellery'
 import Matic from './pages/Matic' 
 import Anging from './pages/Anging'
+import Tsrt from './pages/Tsrt'
 
 function App() {
   return (
@@ -84,7 +85,8 @@ function App() {
           <Route path="/jwellery" element={<Jwellery />} />
           <Route path="/matic" element={<Matic />} />
           <Route path="/laging" element={<Anging />} />
-
+          <Route path="/tsrt" element={<Tsrt />} />
+          
         </Routes>
       </div>
     </Router>
