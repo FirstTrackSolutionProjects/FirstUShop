@@ -2,7 +2,7 @@
 import React from "react";
 import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
-import { Link } from "react-router-dom";
+import { Link } from "react-router-dom"; // Assuming you have react-router-dom set up
 
 // ✅ Categories with links
 const categories = [
@@ -78,11 +78,9 @@ const Tranding = () => {
       <div className="flex justify-between items-center mb-6">
         <h2 className="text-lg md:text-xl font-semibold">
           Shop From{" "}
-          <span className="text-blue-600 cursor-pointer">Top Categories</span>
+          <span className="text-red-600 cursor-pointer">Top Categories</span>
         </h2>
-        <a href="#" className="text-sm text-blue-600 hover:underline">
-          View All →
-        </a>
+        
       </div>
 
       {/* Slider */}
@@ -93,13 +91,31 @@ const Tranding = () => {
             to={cat.link}
             className="keen-slider__slide flex flex-col items-center text-center cursor-pointer group"
           >
-            <div className="w-24 h-24 sm:w-28 sm:h-28 flex items-center justify-center rounded-full bg-gray-100 group-hover:shadow-md transition overflow-hidden">
-              <img
-                src={cat.img}
-                alt={cat.name}
-                className="w-full h-full object-cover"
-              />
+           
+            <div
+              className="
+                p-1 rounded-full 
+                bg-gradient-to-r from-purple-600 via-pink-500 to-orange-400 
+                group-hover:shadow-lg transition-all duration-300
+              "
+            >
+             
+              <div
+                className="
+                  w-24 h-24 sm:w-28 sm:h-28 
+                  flex items-center justify-center 
+                  rounded-full bg-gray-100 overflow-hidden
+                "
+              >
+                <img
+                  src={cat.img}
+                  alt={cat.name}
+                  className="w-full h-full object-cover"
+                />
+              </div>
             </div>
+            {/* ✅ MODIFICATION END */}
+
             <p className="mt-2 text-sm sm:text-base">{cat.name}</p>
           </Link>
         ))}

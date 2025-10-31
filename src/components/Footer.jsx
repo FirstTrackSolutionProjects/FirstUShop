@@ -93,7 +93,7 @@ const LinkedinIcon = () => (
 
 const Footer = () => {
   return (
-    <footer className="bg-[#B33791] text-white pt-16 pb-6 font-sans">
+    <footer className="bg-[#5D0E41] text-white pt-16 pb-6 font-sans">
       <div className="container mx-auto px-4">
         {/* Main footer content */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 mb-8">
@@ -158,7 +158,7 @@ const Footer = () => {
 
         {/* Copyright */}
         <div className="border-t border-gray-700 text-center pt-6 mt-8">
-          <p className="text-gray-900">
+          <p className="bg-clip-text text-transparent bg-gradient-to-r from-purple-600 via-rose-500 to-orange-400">
             Copyright © 2025 First Track Solution Technologies. All Rights Reserved.
           </p>
         </div>

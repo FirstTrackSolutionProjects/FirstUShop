@@ -65,7 +65,7 @@ const Navebar = () => {
   return (
     <nav
       className="relative shadow-md z-50"
-      style={{ background: "linear-gradient(to right, #D8D6F5, #B2B0E8, #D8D6F5)" }}
+      style={{ background: " #6a0a43ff" }}
     >
       {/* Navbar Row */}
       <div className="container mx-auto px-4 py-2 flex items-center justify-between">
@@ -82,14 +82,14 @@ const Navebar = () => {
           </Link>
           <Link
             to="/"
-            className="text-base md:text-lg font-bold text-gray-800 leading-tight"
+            className="text-base md:text-lg font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-600 via-rose-500 to-orange-400"
           >
             Fts Shopping
           </Link>
         </div>
 
         {/* Desktop Links */}
-        <ul className="hidden md:flex items-center space-x-6 font-medium text-gray-700 text-sm">
+        <ul className="hidden md:flex items-center space-x-6 font-medium text-gray-100 text-sm">
           <li><Link to="/" className="hover:text-gray-900 transition">Home</Link></li>
           <li><Link to="/explore" className="hover:text-gray-900 transition">Explore</Link></li>
           <li><Link to="/contact" className="hover:text-gray-900 transition">Contact</Link></li>
@@ -141,7 +141,7 @@ const Navebar = () => {
       <div
         className={`fixed top-0 right-0 h-[80vh] w-[65%] max-w-[220px] rounded-l-xl shadow-lg transform transition-transform duration-300 ease-in-out ${isMenuOpen ? "translate-x-0" : "translate-x-full"
           }`}
-        style={{ background: "linear-gradient(to bottom, #D8D6F5, #B2B0E8)" }}
+        style={{ background: "linear-gradient(to bottom, #f567c6ff, #aa179bff)" }}
       >
         {/* Close Button Only */}
         <div className="flex justify-end px-3 py-2 border-b border-gray-300">

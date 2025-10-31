@@ -2,9 +2,9 @@ import React from 'react';
 
 // --- Helper Component for the "Shop Now" link with an underline effect ---
 const ShopNowLink = () => (
-    <a href="#" className="mt-4 inline-block text-gray-900 dark:text-white font-semibold relative group text-sm">
+    <a href="#" className="mt-4 inline-block text-red-900 dark:text-white font-semibold relative group text-sm">
         <span>Shop Now</span>
-        <span className="absolute bottom-0 left-0 w-full h-0.5 bg-gray-900 dark:bg-white transform scale-x-100 group-hover:scale-x-100 transition-transform duration-300 ease-out"></span>
+        <span className="absolute bottom-0 left-0 w-full h-0.5 bg-red-900 dark:bg-white transform scale-x-100 group-hover:scale-x-100 transition-transform duration-300 ease-out"></span>
     </a>
 );
 
@@ -18,17 +18,17 @@ const NewAriv = () => {
         {/* Header Section */}
         <div className="mb-8">
           <div className="flex items-center gap-4 mb-2">
-            <div className="w-5 h-8 bg-red-500 rounded-sm"></div>
-            <p className="text-red-500 font-semibold">Featured</p>
+            <div className="w-5 h-8 bg-red-900 rounded-sm"></div>
+            <p className="text-red-900 font-semibold">Featured</p>
           </div>
-          <h1 className="text-4xl font-bold tracking-tight">New Arrival</h1>
+          <h1 className="text-4xl font-bold tracking-tight text-[#A3B763]">New Arrival</h1>
         </div>
         
         {/* Main Grid Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           
           {/* Left Side: Large Product Card (PlayStation 5) */}
-          <div className="relative col-span-1 bg-white dark:bg-gray-900 rounded-lg overflow-hidden flex flex-col justify-between p-8 min-h-[30rem] lg:min-h-[40rem]">
+          <div className="relative col-span-1 bg-white dark:bg-red-900 rounded-lg overflow-hidden flex flex-col justify-between p-8 min-h-[30rem] lg:min-h-[40rem]">
               <img 
                 src="/image/l7.jpg"
                 alt="Tshirt" 
@@ -36,7 +36,7 @@ const NewAriv = () => {
                 onError={(e) => { e.target.onerror = null; e.target.src='https://placehold.co/800x800/FFFFFF/000000?text=Image+Error'; }}
               />
               <div className="relative z-10 flex flex-col justify-end h-full text-gray-900 dark:text-white">
-                <h2 className="text-3xl font-bold">Tshirt</h2>
+                <h2 className="text-3xl font-bold text-red-900">Tshirt</h2>
                 
                 <ShopNowLink />
               </div>
@@ -54,7 +54,7 @@ const NewAriv = () => {
                     onError={(e) => { e.target.onerror = null; e.target.src='https://placehold.co/600x400/FFFFFF/000000?text=Image+Error'; }}
                 />
                 <div className="relative z-10 text-gray-900 dark:text-white">
-                    <h3 className="text-2xl font-bold">Women's Collections</h3>
+                    <h3 className="text-2xl font-bold ">Women's Collections</h3>
                    
                     <ShopNowLink />
                 </div>

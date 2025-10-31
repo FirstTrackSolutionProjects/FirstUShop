@@ -79,10 +79,10 @@ const Explor = () => {
             timeoutRef.current = setTimeout(goNext, 4000);
         }}
       >
-        <h2 className="text-center text-3xl md:text-4xl font-bold text-gray-800 mb-2">
+        <h2 className="text-center text-3xl md:text-4xl font-bold text-[#A3B763] mb-2">
           What Our Customers Say
         </h2>
-        <p className="text-center text-gray-500 mb-8 md:mb-12">
+        <p className="text-center text-red-900 mb-8 md:mb-12">
           Real stories from real people.
         </p>
 

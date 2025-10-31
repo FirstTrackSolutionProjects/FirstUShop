@@ -95,8 +95,8 @@ const Last = () => {
         
         {/* Header Section */}
         <div className="text-center mb-20">
-          <h2 className="text-base font-semibold text-indigo-600 tracking-wider uppercase">Our Commitment to You</h2>
-          <p className="mt-2 text-4xl sm:text-5xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600">
+          <h2 className="text-base font-semibold text-[#A3B763] tracking-wider uppercase">Our Commitment to You</h2>
+          <p className="mt-2 text-4xl sm:text-5xl font-extrabold tracking-tight text-red-900">
             Why Shop With Us?
           </p>
           <p className="mt-6 max-w-2xl mx-auto text-lg text-gray-600">

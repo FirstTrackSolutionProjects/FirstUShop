@@ -75,8 +75,8 @@ const Bestpro = () => {
     <div className="bg-gradient-to-br from-gray-50 to-gray-100 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl">Best Selling Products</h2>
-          <p className="mt-3 text-lg text-gray-600">Discover our most popular items loved by customers</p>
+          <h2 className="text-3xl font-bold text-red-900 sm:text-4xl">Best Selling Products</h2>
+          <p className="mt-3 text-lg text-[#A3B763]">Discover our most popular items loved by customers</p>
         </div>
         
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
