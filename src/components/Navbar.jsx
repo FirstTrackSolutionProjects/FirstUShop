@@ -84,7 +84,7 @@ const Navebar = () => {
             to="/"
             className="text-base md:text-lg font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-600 via-rose-500 to-orange-400"
           >
-            Fts Shopping
+            FTS Shopping
           </Link>
         </div>
 
