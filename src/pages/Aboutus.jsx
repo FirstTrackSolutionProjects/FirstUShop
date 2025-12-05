@@ -1,243 +1,199 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { 
-  Users, 
-  Target, 
-  Eye, 
-  Award, 
-  Truck, 
-  Lock, 
-  MessageSquare, 
-  DollarSign, 
-  Leaf 
+import {
+  Users,
+  Target,
+  Eye,
+  Award,
+  Truck,
+  Lock,
+  MessageSquare,
+  DollarSign,
+  Leaf,
+  ShoppingBag,
 } from 'lucide-react';
-import Footer from '../components/Footer';
 
-// Animation variants for Framer Motion
-const fadeIn = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { 
-    opacity: 1, 
-    y: 0,
-    transition: { duration: 0.6 }
-  },
+// Animations
+const fadeUp = {
+  hidden: { opacity: 0, y: 40 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
 };
 
-const staggerContainer = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.2,
-    },
-  },
+const staggerWrapper = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.2 } },
 };
 
-function AboutUs() {
+export default function AboutUs() {
   const coreValues = [
-    { icon: <Award size={32} className="text-blue-500" />, title: "Quality First", description: "Curating only the best products from trusted brands with rigorous quality checks." },
-    { icon: <Truck size={32} className="text-blue-500" />, title: "Fast Delivery", description: "Quick and reliable shipping with real-time tracking to get your orders to you faster." },
-    { icon: <Lock size={32} className="text-blue-500" />, title: "Secure Shopping", description: "Your data is protected with advanced encryption and security protocols." },
-    { icon: <MessageSquare size={32} className="text-blue-500" />, title: "24/7 Support", description: "Always here to help with any questions through multiple support channels." },
-    { icon: <DollarSign size={32} className="text-blue-500" />, title: "Best Prices", description: "Competitive pricing and regular deals to ensure you get the best value." },
-    { icon: <Leaf size={32} className="text-blue-500" />, title: "Sustainability", description: "Committed to eco-friendly packaging and responsible business practices." },
+    { icon: <Award size={30} className="text-pink-600" />, title: "Premium Quality", desc: "Only top-rated and verified products curated specially for you." },
+    { icon: <Truck size={30} className="text-blue-600" />, title: "Express Delivery", desc: "Fast doorstep delivery across India with real-time tracking." },
+    { icon: <Lock size={30} className="text-green-600" />, title: "100% Secure", desc: "End-to-end encrypted payment & world-class data safety." },
+    { icon: <MessageSquare size={30} className="text-purple-600" />, title: "24×7 Support", desc: "Friendly, fast & dedicated support whenever you need us." },
+    { icon: <DollarSign size={30} className="text-indigo-600" />, title: "Best Prices", desc: "Exclusive discounts, festival offers & loyalty rewards." },
+    { icon: <Leaf size={30} className="text-emerald-600" />, title: "Sustainable", desc: "Eco-friendly packaging & responsible sourcing." },
   ];
 
-  const teamMembers = [
-    { name: "Alice Johnson", role: "Founder & CEO", image: "https://i.pravatar.cc/150?img=1" },
-    { name: "Bob Williams", role: "Head of Operations", image: "https://i.pravatar.cc/150?img=2" },
-    { name: "Charlie Brown", role: "Marketing Director", image: "https://i.pravatar.cc/150?img=3" },
+  const team = [
+    { name: "Alice Johnson", role: "Founder & CEO", image: "https://i.pravatar.cc/300?img=11" },
+    { name: "Rahul Sharma", role: "Head of Operations", image: "https://i.pravatar.cc/300?img=32" },
+    { name: "Sofia Rodriguez", role: "Brand Director", image: "https://i.pravatar.cc/300?img=49" },
   ];
 
   const stats = [
-    { value: "1M+", label: "Happy Customers" },
-    { value: "50K+", label: "Products Available" },
-    { value: "500+", label: "Brand Partners" },
+    { value: "1M+", label: "Happy Shoppers" },
+    { value: "50K+", label: "Products Listed" },
+    { value: "700+", label: "Verified Sellers" },
     { value: "24/7", label: "Customer Support" },
   ];
 
   return (
-    <div>
-    <div className="min-h-screen bg-gray-50 font-sans text-gray-800">
-      
-      {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-indigo-600 via-purple-600 to-blue-700 text-white overflow-hidden">
-        <div className="absolute inset-0 bg-black opacity-20"></div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32">
-          <motion.div 
-            className="text-center"
-            initial="hidden"
-            animate="visible"
-            variants={fadeIn}
-          >
-            <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight mb-4 text-shadow-lg">
-              Crafting Your Perfect Shopping Experience
-            </h1>
-            <p className="max-w-3xl mx-auto text-xl md:text-2xl opacity-90 leading-relaxed">
-              We're more than just a store. We're your partner in discovering products you love, making online shopping simple, enjoyable, and accessible to all.
-            </p>
-            {/* <motion.a 
-              href="#our-story" 
-              className="mt-10 inline-block bg-white text-indigo-600 font-semibold px-8 py-3 rounded-full text-lg shadow-lg hover:bg-gray-100 transition-transform transform hover:scale-105"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Discover Our Story
-            </motion.a> */}
-          </motion.div>
-        </div>
+    <div className="bg-gray-50 text-gray-800">
+
+      {/* HERO */}
+      <section className="relative bg-gradient-to-br from-pink-600 to-indigo-700 text-white py-28 overflow-hidden">
+        <div className="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
+
+        <motion.div
+          className="max-w-5xl mx-auto px-6 text-center relative z-10"
+          initial="hidden"
+          animate="visible"
+          variants={fadeUp}
+        >
+          <h1 className="text-4xl md:text-6xl font-extrabold mb-6">
+            Welcome to <span className="text-yellow-300">FirstUShop</span>
+          </h1>
+          <p className="text-lg md:text-xl opacity-90 max-w-3xl mx-auto leading-relaxed">
+            India's modern online shopping destination for fashion, lifestyle, and everyday essentials —
+            trusted by millions across the country.
+          </p>
+        </motion.div>
       </section>
 
-      {/* Our Story Section (Mission & Vision Combined) */}
-      <section id="our-story" className="py-20 bg-white">
-        <div className="max-w-6xl mx-auto px-4 space-y-16">
-          <motion.div 
-            className="grid lg:grid-cols-2 gap-12 items-center"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.3 }}
-            variants={fadeIn}
-          >
-            <div className="lg:pr-10">
-              <div className="flex items-center text-blue-600 mb-4">
-                <Target className="mr-3" size={30} />
-                <h2 className="text-3xl md:text-4xl font-bold">Our Mission</h2>
-              </div>
-              <p className="text-lg text-gray-600 leading-relaxed">
-                To empower customers by providing a seamless shopping experience with the best products at unbeatable prices. We strive to bridge the gap between quality and affordability, ensuring everyone can access the products they love and need to live a better life.
-              </p>
-            </div>
-            <div className="rounded-lg overflow-hidden shadow-2xl">
-              <img src="https://images.unsplash.com/photo-1522204523234-8729aa6e3d5f?q=80&w=2070" alt="Team working" className="w-full h-full object-cover"/>
-            </div>
-          </motion.div>
-
-          <motion.div 
-            className="grid lg:grid-cols-2 gap-12 items-center"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.3 }}
-            variants={fadeIn}
-          >
-            <div className="rounded-lg overflow-hidden shadow-2xl lg:order-last">
-              <img src="https://images.unsplash.com/photo-1556740738-b6a63e2775d2?q=80&w=2070" alt="Happy customer" className="w-full h-full object-cover"/>
-            </div>
-            <div>
-              <div className="flex items-center text-blue-600 mb-4">
-                <Eye className="mr-3" size={30} />
-                <h2 className="text-3xl md:text-4xl font-bold">Our Vision</h2>
-              </div>
-              <p className="text-lg text-gray-600 leading-relaxed">
-                We envision a future where shopping is not just a transaction, but an experience. A world with no crowded stores or long queues—just smart, intuitive, and personalized shopping with delivery right to your doorstep, connecting you with what matters most.
-              </p>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Core Values Section */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-6xl mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">What We Stand For</h2>
-          <p className="text-lg text-gray-600 mb-16 max-w-2xl mx-auto">Our values are the compass that guides every decision we make.</p>
-          <motion.div 
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-            variants={staggerContainer}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.1 }}
-          >
-            {coreValues.map((value, index) => (
-              <motion.div 
-                key={index}
-                className="bg-white p-8 rounded-xl shadow-md hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col items-center text-center"
-                variants={fadeIn}
-              >
-                <div className="bg-blue-100 p-4 rounded-full mb-5">
-                  {value.icon}
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">{value.title}</h3>
-                <p className="text-gray-600">{value.description}</p>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Stats Section */}
-      <section className="py-20 bg-gradient-to-br from-blue-700 to-purple-700 text-white">
-        <div className="max-w-6xl mx-auto px-4">
-          <motion.div 
-            className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.5 }}
-            variants={staggerContainer}
-          >
-            {stats.map((stat, index) => (
-              <motion.div key={index} className="flex flex-col items-center" variants={fadeIn}>
-                <span className="text-4xl md:text-5xl font-extrabold">{stat.value}</span>
-                <span className="text-lg opacity-90 mt-2">{stat.label}</span>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Meet The Team Section */}
+      {/* MISSION */}
       <section className="py-20 bg-white">
-        <div className="max-w-6xl mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Meet Our Leaders</h2>
-          <p className="text-lg text-gray-600 mb-16 max-w-2xl mx-auto">The passionate minds dedicated to revolutionizing your shopping experience.</p>
-          <motion.div 
+        <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 flex items-center gap-3">
+              <Target size={32} className="text-indigo-600" /> Our Mission
+            </h2>
+            <p className="text-gray-600 text-lg mt-4 leading-relaxed">
+              To offer a seamless, affordable, and enjoyable online shopping experience.
+              We aim to bring top-quality products to every Indian doorstep, making lifestyle more stylish and convenient.
+            </p>
+          </motion.div>
+
+          <motion.img
+            src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=2000"
+            alt="Mission"
+            className="rounded-xl shadow-xl"
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          />
+        </div>
+      </section>
+
+      {/* VISION */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+          <motion.img
+            src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=2000"
+            alt="Vision"
+            className="rounded-xl shadow-xl"
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          />
+
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 flex items-center gap-3">
+              <Eye size={32} className="text-pink-600" /> Our Vision
+            </h2>
+            <p className="text-gray-600 text-lg mt-4 leading-relaxed">
+              To redefine online shopping with smart personalization, faster logistics,
+              and an unmatched customer experience — making FirstUShop a household name.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* CORE VALUES */}
+      <section className="py-20 bg-white">
+        <div className="max-w-6xl mx-auto px-6 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-14">Why Customers Love Us</h2>
+
+          <motion.div
             className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10"
-            variants={staggerContainer}
+            variants={staggerWrapper}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
+            viewport={{ once: true }}
           >
-            {teamMembers.map((member, index) => (
-              <motion.div 
-                key={index} 
-                className="flex flex-col items-center" 
-                variants={fadeIn}
+            {coreValues.map((item, i) => (
+              <motion.div
+                key={i}
+                className="bg-gray-50 p-8 rounded-xl shadow hover:shadow-xl transition-all border border-gray-100"
+                variants={fadeUp}
               >
-                <img src={member.image} alt={member.name} className="w-36 h-36 rounded-full object-cover mb-4 shadow-lg"/>
-                <h3 className="text-xl font-bold">{member.name}</h3>
-                <p className="text-blue-600 font-semibold">{member.role}</p>
+                <div className="mx-auto bg-white p-4 rounded-full shadow-md w-fit mb-5">
+                  {item.icon}
+                </div>
+                <h3 className="text-xl font-bold mb-2">{item.title}</h3>
+                <p className="text-gray-600">{item.desc}</p>
               </motion.div>
             ))}
           </motion.div>
         </div>
       </section>
 
-      {/* Final CTA Section */}
-      <section className="bg-gray-100">
-        <div className="max-w-4xl mx-auto text-center py-20 px-4">
+      {/* STATS */}
+      <section className="py-20 bg-gradient-to-r from-indigo-700 to-pink-600 text-white">
+        <div className="max-w-6xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-10 text-center">
+          {stats.map((s, i) => (
+            <motion.div
+              key={i}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={fadeUp}
+            >
+              <h3 className="text-4xl font-extrabold">{s.value}</h3>
+              <p className="text-sm opacity-90 mt-2">{s.label}</p>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+      {/* TEAM */}
+      <section className="py-20 bg-white">
+        <div className="max-w-6xl mx-auto px-6 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-12">Meet Our Team</h2>
+
           <motion.div
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12"
+            variants={staggerWrapper}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.5 }}
-            variants={fadeIn}
+            viewport={{ once: true }}
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready to Join Us?</h2>
-            <p className="text-lg md:text-xl text-gray-600 mb-8">
-              Explore thousands of curated products and experience shopping like never before.
-            </p>
-            {/* <motion.button 
-              className="bg-indigo-600 text-white font-semibold px-10 py-4 rounded-full text-lg shadow-lg hover:bg-indigo-700 transition-colors"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Start Shopping Now
-            </motion.button> */}
+            {team.map((m, i) => (
+              <motion.div key={i} className="text-center" variants={fadeUp}>
+                <img
+                  src={m.image}
+                  className="w-36 h-36 object-cover rounded-full mx-auto shadow-lg mb-4"
+                  alt={m.name}
+                />
+                <h3 classname="text-xl font-bold">{m.name}</h3>
+                <p className="text-indigo-600 font-medium">{m.role}</p>
+              </motion.div>
+            ))}
           </motion.div>
         </div>
       </section>
-    </div>
-      <Footer/>
+
     </div>
   );
 }
-
-export default AboutUs;
