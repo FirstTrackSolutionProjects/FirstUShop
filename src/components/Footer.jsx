@@ -1,167 +1,133 @@
-import React from 'react';
-import { Link } from 'react-router-dom'; // For internal navigation
-
-// --- Icons ---
-const SendIcon = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-    strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-    <path strokeLinecap="round" strokeLinejoin="round"
-      d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 
-      59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5" />
-  </svg>
-);
-
-const FacebookIcon = () => (
-  <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-    <path fillRule="evenodd"
-      d="M22 12c0-5.523-4.477-10-10-10S2 6.477 
-      2 12c0 4.991 3.657 9.128 8.438 
-      9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 
-      1.492-3.89 3.777-3.89 1.094 0 
-      2.238.195 2.238.195v2.46h-1.26c-1.243 
-      0-1.63.771-1.63 1.562V12h2.773l-.443 
-      2.89h-2.33v6.988C18.343 21.128 22 
-      16.991 22 12z" clipRule="evenodd" />
-  </svg>
-);
-
-const TwitterIcon = () => (
-  <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-    <path d="M8.29 20.251c7.547 0 11.675-6.253 
-    11.675-11.675 0-.178 0-.355-.012-.53A8.348 
-    8.348 0 0022 5.92a8.19 8.19 0 
-    01-2.357.646 4.118 4.118 0 001.804-2.27 
-    8.224 8.224 0 01-2.605.996 4.107 
-    4.107 0 00-6.993 3.743 11.65 11.65 
-    0 01-8.457-4.287 4.106 4.106 0 
-    001.27 5.477A4.072 4.072 0 012.8 
-    9.71v.052a4.105 4.105 0 003.292 
-    4.022 4.095 4.095 0 01-1.853.07 
-    4.108 4.108 0 003.834 2.85A8.233 
-    8.233 0 012 18.407a11.616 11.616 
-    0 006.29 1.84" />
-  </svg>
-);
-
-const InstagramIcon = () => (
-  <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-    <path fillRule="evenodd"
-      d="M12.315 2c2.43 0 2.784.013 3.808.06 
-      1.064.049 1.791.218 2.427.465a4.902 
-      4.902 0 011.772 1.153 4.902 4.902 0 
-      011.153 1.772c.247.636.416 1.363.465 
-      2.427.048 1.024.06 1.378.06 
-      3.808s-.012 2.784-.06 3.808c-.049 
-      1.064-.218 1.791-.465 2.427a4.902 
-      4.902 0 01-1.153 1.772 4.902 4.902 
-      0 01-1.772 1.153c-.636.247-1.363.416-2.427.465
-      -1.024.048-1.378.06-3.808.06s-2.784
-      -.013-3.808-.06c-1.064-.049-1.791
-      -.218-2.427-.465a4.902 4.902 0 
-      01-1.772-1.153 4.902 4.902 0 
-      01-1.153-1.772c-.247-.636-.416
-      -1.363-.465-2.427-.048-1.024-.06
-      -1.378-.06-3.808s.012-2.784.06
-      -3.808c.049-1.064.218-1.791.465
-      -2.427a4.902 4.902 0 011.153
-      -1.772A4.902 4.902 0 016.345 
-      4.22c.636-.247 1.363-.416 2.427-.465C9.793 2.013 10.147 2 12.315 
-      2zM12 7.188a4.813 4.813 0 100 
-      9.625 4.813 4.813 0 000-9.625zM12 
-      15a3 3 0 110-6 3 3 0 010 6zm4.838
-      -9.002a1.125 1.125 0 100 2.25 
-      1.125 1.125 0 000-2.25z" clipRule="evenodd" />
-  </svg>
-);
-
-const LinkedinIcon = () => (
-  <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-    <path fillRule="evenodd"
-      d="M19 0h-14c-2.761 0-5 2.239-5 
-      5v14c0 2.761 2.239 5 5 
-      5h14c2.762 0 5-2.239 5-5v-14c0
-      -2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5
-      -12.268c-.966 0-1.75-.79-1.75
-      -1.764s.784-1.764 1.75-1.764 
-      1.75.79 1.75 1.764-.783 
-      1.764-1.75 1.764zm13.5 
-      12.268h-3v-5.604c0-3.368-4-3.113-4 
-      0v5.604h-3v-11h3v1.765c1.396
-      -2.586 7-2.777 7 2.476v6.759z" clipRule="evenodd" />
-  </svg>
-);
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { 
+  FaFacebookF, 
+  FaTwitter, 
+  FaInstagram, 
+  FaLinkedin, 
+  FaPaperPlane,
+  FaEnvelope, 
+  FaMapMarkerAlt,
+  FaPhoneAlt
+} from 'react-icons/fa';
 
 const Footer = () => {
+  const [email, setEmail] = useState('');
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleSubscribe = (e) => {
+    e.preventDefault();
+    if (email.trim() === '') return;
+    setSubmitted(true);
+    setEmail('');
+    setTimeout(() => setSubmitted(false), 4000);
+  };
+
   return (
-    <footer className="bg-[#5D0E41] text-white pt-16 pb-6 font-sans">
+    <footer className="bg-[#5D0E41] text-white pt-16 pb-6 font-sans relative">
       <div className="container mx-auto px-4">
-        {/* Main footer content */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 mb-8">
-          
-          {/* Column 1: Exclusive */}
+
+        {/* Main Footer Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-10 mb-12">
+
+          {/* Column 1: Brand */}
           <div className="space-y-4">
-            <h3 className="text-2xl font-bold">Exclusive</h3>
-            <p className="text-xl">Subscribe</p>
-            <p>Get 10% off your first order</p>
-            <div className="relative">
+            <h3 className="text-3xl font-extrabold tracking-wide">Exclusive</h3>
+            <p className="text-xl font-semibold">Stay Updated</p>
+            <p className="text-sm text-gray-200">
+              Join our newsletter and enjoy <span className="text-yellow-300 font-semibold">10% OFF</span> on your first purchase.
+            </p>
+
+            <form className="relative mt-4" onSubmit={handleSubscribe}>
               <input
                 type="email"
                 placeholder="Enter your email"
-                className="bg-transparent border border-white rounded-md py-2 px-3 w-full placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="bg-transparent border border-white rounded-md p-2 w-full placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-white"
+                required
               />
-              <button className="absolute right-2 top-1/2 -translate-y-1/2">
-                <SendIcon />
+              <button
+                type="submit"
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-white hover:text-yellow-300 transition"
+              >
+                <FaPaperPlane className="w-5 h-5" />
               </button>
+            </form>
+
+            {submitted && (
+              <p className="text-green-400 animate-fadeIn text-sm">
+                You’re subscribed! Thank you.
+              </p>
+            )}
+          </div>
+
+          {/* Column 2: Contact Info */}
+          <div className="space-y-4">
+            <h3 className="text-2xl font-bold">Contact Us</h3>
+
+            <div className="flex items-start gap-3">
+              <FaMapMarkerAlt className="text-yellow-300 mt-1" />
+              <p className="leading-relaxed text-gray-200">
+                BMC Bhawani Mall, Saheed Nagar, Bhubaneswar,<br /> Odisha - 751007, India
+              </p>
+            </div>
+
+            <div className="flex items-center gap-3">
+              <FaEnvelope className="text-yellow-300" />
+              <p className="text-gray-200">support@firstushop.com</p>
+            </div>
+
+            <div className="flex items-center gap-3">
+              <FaPhoneAlt className="text-yellow-300" />
+              <p className="text-gray-200">+91 90401 70727</p>
             </div>
           </div>
 
-          {/* Column 2: Support */}
+          {/* Column 3: Information */}
           <div className="space-y-4">
-            <h3 className="text-xl font-semibold">Support</h3>
-            <p>BMC Bhawani Mall, Saheed Nagar Bhubaneswar,<br /> Odisha-751007, India.</p>
-            <p>Mobile no +91-9040170727</p>
-          </div>
-
-          {/* Column 3: Account */}
-          <div className="space-y-3">
-            <h3 className="text-xl font-semibold">Account</h3>
+            <h3 className="text-xl font-bold">Information</h3>
             <ul className="space-y-2">
               <li><Link to="/aboutus" className="hover:underline">About Us</Link></li>
               <li><Link to="/security" className="hover:underline">Security</Link></li>
-              <li><Link to="/cancellation" className="hover:underline">Cancellation and Refund</Link></li>
+              <li><Link to="/cancellation" className="hover:underline">Cancellation & Refund</Link></li>
               <li><Link to="/blog" className="hover:underline">Blog</Link></li>
             </ul>
           </div>
 
-          {/* Column 4: Quick Link */}
-          <div className="space-y-3">
-            <h3 className="text-xl font-semibold">Quick Link</h3>
+          {/* Column 4: Quick Links */}
+          <div className="space-y-4">
+            <h3 className="text-xl font-bold">Quick Links</h3>
             <ul className="space-y-2">
-              <li><Link to="/privcy" className="hover:underline">Privacy Policy</Link></li>
-              <li><Link to="/terms" className="hover:underline">Terms Of Use</Link></li>
+              <li><Link to="/privacy" className="hover:underline">Privacy Policy</Link></li>
+              <li><Link to="/terms" className="hover:underline">Terms of Use</Link></li>
               <li><Link to="/contact" className="hover:underline">Contact</Link></li>
-              <li><a href="/faq" className="hover:underline">FAQ</a></li>
+              <li><Link to="/faq" className="hover:underline">FAQ</Link></li>
             </ul>
           </div>
 
-          {/* Column 5: Follow Us */}
+          {/* Column 5: Social Media */}
           <div className="space-y-4">
             <h3 className="text-xl font-semibold">Follow Us</h3>
-            <div className="flex space-x-4 pt-2">
-              <a href="#" aria-label="Facebook"><FacebookIcon /></a>
-              <a href="#" aria-label="Twitter"><TwitterIcon /></a>
-              <a href="#" aria-label="Instagram"><InstagramIcon /></a>
-              <a href="#" aria-label="LinkedIn"><LinkedinIcon /></a>
+            <p className="text-gray-200 text-sm">Let’s stay connected</p>
+
+            <div className="flex space-x-4 text-lg">
+              <a href="#" className="hover:text-blue-400 transition"><FaFacebookF /></a>
+              <a href="#" className="hover:text-sky-400 transition"><FaTwitter /></a>
+              <a href="#" className="hover:text-pink-400 transition"><FaInstagram /></a>
+              <a href="#" className="hover:text-blue-300 transition"><FaLinkedin /></a>
             </div>
           </div>
+
         </div>
 
-        {/* Copyright */}
+        {/* Footer Bottom */}
         <div className="border-t border-gray-700 text-center pt-6 mt-8">
-          <p className="bg-clip-text text-transparent bg-gradient-to-r from-purple-600 via-rose-500 to-orange-400">
-            Copyright © 2025 First Track Solution Technologies. All Rights Reserved.
+          <p className="bg-clip-text text-transparent bg-gradient-to-r from-purple-600 via-rose-500 to-orange-400 text-sm tracking-wide">
+            © 2025 First Track Solution Technologies. All Rights Reserved.
           </p>
         </div>
+
       </div>
     </footer>
   );

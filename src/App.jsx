@@ -1,43 +1,39 @@
 import React from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import './App.css'
-
-// Components
 import Navbar from './components/Navbar'
-import Landing from './components/Landing'
-import Tranding from './components/Tranding'
 import Footer from './components/Footer'
-import Bestpro from './components/Bestpro'
-import NewAriv from './components/NewAriv'
-import Explor from './components/Explor'
-import Last from './components/Last'
-import Women from './components/Women'
-
-
-// Pages
 import Home from './pages/Home'
-import Foot from './pages/Foot'
+
 import Contact from './pages/Contact'
+import Login from './pages/Login'
 import Register from './pages/Register'
 import About from './pages/About'
-import Explore from './pages/Explore'
+
 import Terms from './pages/Terms'
-import Privcy from './pages/Privcy'
-import Watch from './pages/Watch'
-import Aboutus from './pages/Aboutus'
-import Security from './pages/Security'
+import Privacy from './pages/Privacy'
 import Cancellation from './pages/Cancellation'
 import Blog from './pages/Blog'
 import Faq from './pages/Faq'
-import Saree from './pages/saree'
-import Tshirt from './pages/Tshirt'
-import Shirt from './pages/Shirt'
-import Kurta from './pages/Kurta'
-import Kurti from './pages/Kurti'
-import Jwellery from './pages/Jwellery'
-import Matic from './pages/Matic' 
-import Anging from './pages/Anging'
-import Tsrt from './pages/Tsrt'
+import Aboutus from './pages/Aboutus'
+import Security from './pages/Security'
+
+import Explore from './pages/Explore'
+import CartPage from './pages/CartPage'
+import ProductDetails from './pages/ProductDetails'
+import Categorypage from './pages/Categorypage'
+
+import Watch from './pages/Watch'
+import Accessories from './pages/Accessories'
+import FootWear from './pages/FootWear'
+import Bags from './pages/Bags'
+import KidsWear from './pages/KidsWear'
+import HomeLiving from './pages/HomeLiving'
+import TopWear from './pages/TopWear'
+import EthnicWear from './pages/EthnicWear'
+import Jewellery from './pages/Jewellery'
+import Cosmetics from './pages/Cosmetics' 
+import BottomWear from './pages/BottomWear'
+
 
 function App() {
   return (
@@ -48,47 +44,43 @@ function App() {
 
         {/* Landing + Tranding only show on homepage */}
         <Routes>
-          <Route
-            path="/"
-            element={
-              <>
-                <Landing />
-                <Tranding />
-                <Women/>
-                <Bestpro/>
-                <NewAriv/>
-                <Explor/>
-                <Last/>
-                <Footer/>
-              </>
-            }
-          />
-          <Route path="/home" element={<Home />} />
-          <Route path="/foot" element={<Foot />} />
+          
+          <Route path="/" element={<Home />} />
+          
           <Route path="/contact" element={<Contact />} />
+          <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/about" element={<About />} />
-          <Route path="/explore" element={<Explore />} />
-          <Route path="/terms" element={<Terms />} />
-          <Route path="/privcy" element={<Privcy />} />
-          <Route path="/watch" element={<Watch />} />
           <Route path="/aboutus" element={<Aboutus />} />
           <Route path="/security" element={<Security />} />
           <Route path="/cancellation" element={<Cancellation />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/faq" element={<Faq />} />
-          <Route path="/saree" element={<Saree />} />
-          <Route path="/tshirt" element={<Tshirt />} />
-          <Route path="/shirt" element={<Shirt />} />
-          <Route path="/kurta" element={<Kurta />} />
-          <Route path="/kurti" element={<Kurti />} />
-          <Route path="/jwellery" element={<Jwellery />} />
-          <Route path="/matic" element={<Matic />} />
-          <Route path="/laging" element={<Anging />} />
-          <Route path="/tsrt" element={<Tsrt />} />
+          <Route path="/terms" element={<Terms />} />
+          <Route path="/privacy" element={<Privacy />} />
+
+          <Route path="/explore" element={<Explore />} />
+          <Route path="/cart" element={<CartPage />} />
+          <Route path="/product/:id" element={<ProductDetails />} />
+          <Route path="/category/:slug" element={<Categorypage />} />
+        
+          <Route path="/foot" element={<FootWear />} />
+          <Route path="/watch" element={<Watch />} />
+          <Route path="/accessories" element={<Accessories />} />
+          <Route path="/bags" element={<Bags />} />
+          <Route path="/kids-wear" element={<KidsWear />} />
+          <Route path="/home-living" element={<HomeLiving />} />
+          <Route path="/top" element={<TopWear />} />
+          <Route path="/ethnic" element={<EthnicWear />} />
+          <Route path="/jewel" element={<Jewellery />} />
+          <Route path="/cosmetics" element={<Cosmetics />} />
+          <Route path="/bottom" element={<BottomWear />} />
+
           
         </Routes>
+     
       </div>
+      <Footer />
     </Router>
   )
 }

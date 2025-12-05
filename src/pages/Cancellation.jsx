@@ -1,150 +1,174 @@
-import React from 'react'
-import Footer from '../components/Footer'
+import React from 'react';
+import { XCircle, RefreshCcw, ArrowLeftRight, PackageOpen, Clock, Info } from "lucide-react";
+import { Link } from 'react-router-dom';
 
 const Cancellation = () => {
   return (
-    <div>
-    <div className="cancellation-page max-w-4xl mx-auto px-4 py-8">
-      <h1 className="text-3xl font-bold text-gray-800 mb-6">Cancellation & Refund Policy</h1>
-      
-      <div className="space-y-6">
+    <div className="bg-gray-50 min-h-screen py-12 px-4">
+      <div className="max-w-5xl mx-auto">
+
+        {/* Header */}
+        <div className="text-center mb-12">
+          <RefreshCcw size={55} className="mx-auto text-blue-600" />
+          <h1 className="text-4xl font-bold text-gray-800 mt-4">
+            Cancellation & Refund Policy
+          </h1>
+          <p className="text-gray-600 mt-2 text-lg">
+            Clear, simple, and transparent process for cancellations and refunds.
+          </p>
+        </div>
+
         {/* Cancellation Section */}
-        <div className="bg-white rounded-lg shadow-md p-6">
-          <h2 className="text-2xl font-semibold text-gray-800 mb-4">Cancellation Policy</h2>
-          
-          <div className="space-y-4">
+        <div className="bg-white rounded-xl shadow-md p-8 border border-gray-100 mb-8">
+          <h2 className="text-2xl font-bold text-gray-800 mb-6 flex items-center gap-3">
+            <XCircle className="text-red-500" /> Cancellation Policy
+          </h2>
+
+          <div className="space-y-6">
+
             <div className="border-l-4 border-blue-500 pl-4">
-              <h3 className="text-lg font-semibold text-gray-700">When can I cancel my order?</h3>
+              <h3 className="text-xl font-semibold text-gray-700">When can I cancel my order?</h3>
               <p className="text-gray-600 mt-2">
-                You can cancel your order anytime before the item is shipped. Once the item is shipped, 
-                cancellation is not possible.
+                You can cancel anytime before the item is shipped.  
+                Once shipped, the order cannot be cancelled.
               </p>
             </div>
 
             <div className="border-l-4 border-green-500 pl-4">
-              <h3 className="text-lg font-semibold text-gray-700">How to cancel an order?</h3>
+              <h3 className="text-xl font-semibold text-gray-700">How to cancel an order?</h3>
               <ul className="text-gray-600 mt-2 list-disc list-inside space-y-1">
-                <li>Go to 'My Orders' section in your account</li>
-                <li>Select the order you want to cancel</li>
-                <li>Click on 'Cancel Order' button</li>
-                <li>Select the reason for cancellation</li>
+                <li>Go to <strong>My Orders</strong></li>
+                <li>Select the order</li>
+                <li>Click on <strong>Cancel Order</strong></li>
+                <li>Select a reason</li>
                 <li>Confirm cancellation</li>
               </ul>
             </div>
 
             <div className="border-l-4 border-purple-500 pl-4">
-              <h3 className="text-lg font-semibold text-gray-700">Automatic Cancellation</h3>
+              <h3 className="text-xl font-semibold text-gray-700">Automatic Cancellation</h3>
               <p className="text-gray-600 mt-2">
-                Orders are automatically cancelled if payment is not completed within 24 hours 
-                for prepaid orders, or if the item is out of stock.
+                Orders may auto-cancel if payment is incomplete or the item becomes unavailable.
               </p>
             </div>
+
           </div>
         </div>
 
         {/* Refund Section */}
-        <div className="bg-white rounded-lg shadow-md p-6">
-          <h2 className="text-2xl font-semibold text-gray-800 mb-4">Refund Policy</h2>
-          
-          <div className="space-y-4">
+        <div className="bg-white rounded-xl shadow-md p-8 border border-gray-100 mb-8">
+          <h2 className="text-2xl font-bold text-gray-800 mb-6 flex items-center gap-3">
+            <ArrowLeftRight className="text-green-600" /> Refund Policy
+          </h2>
+
+          <div className="space-y-6">
+
             <div className="border-l-4 border-orange-500 pl-4">
-              <h3 className="text-lg font-semibold text-gray-700">When will I receive my refund?</h3>
+              <h3 className="text-xl font-semibold text-gray-700">Refund Timeline</h3>
               <p className="text-gray-600 mt-2">
-                Refunds are processed within 7-10 business days from the date of cancellation/return approval. 
-                The exact time may vary depending on your bank/payment method.
+                Refunds are processed within <strong>7–10 business days</strong> after approval.  
+                UPI refunds may take <strong>3–5 business days</strong>.
               </p>
             </div>
 
             <div className="border-l-4 border-red-500 pl-4">
-              <h3 className="text-lg font-semibold text-gray-700">Refund Methods</h3>
+              <h3 className="text-xl font-semibold text-gray-700">Refund Methods</h3>
               <ul className="text-gray-600 mt-2 list-disc list-inside space-y-1">
-                <li><strong>Credit/Debit Card:</strong> 7-10 business days</li>
-                <li><strong>Net Banking:</strong> 7-10 business days</li>
-                <li><strong>UPI:</strong> 3-5 business days</li>
-                <li><strong>Wallet:</strong> 24-48 hours</li>
-                <li><strong>FTS Shopping Pay Later:</strong> Instant reversal</li>
+                <li><strong>Credit/Debit Card:</strong> 7–10 days</li>
+                <li><strong>Net Banking:</strong> 7–10 days</li>
+                <li><strong>UPI:</strong> 3–5 days</li>
+                <li><strong>Wallet:</strong> 24–48 hours</li>
+                <li><strong>Pay Later:</strong> Instant reversal</li>
               </ul>
             </div>
 
             <div className="border-l-4 border-green-500 pl-4">
-              <h3 className="text-lg font-semibold text-gray-700">Return & Refund Eligibility</h3>
+              <h3 className="text-xl font-semibold text-gray-700">Eligibility for Return & Refund</h3>
               <ul className="text-gray-600 mt-2 list-disc list-inside space-y-1">
-                <li>Items must be in original condition with tags attached</li>
-                <li>Return request must be made within 10 days of delivery</li>
-                <li>Original packaging should be intact</li>
-                <li>Free gifts must be returned with the product</li>
-                <li>Certain products like innerwear, personalized items, and perishables are non-returnable</li>
+                <li>Product must be unused with original tags</li>
+                <li>Return request within 10 days of delivery</li>
+                <li>Original packaging must be intact</li>
+                <li>Free gifts must be returned</li>
+                <li>Non-returnable: innerwear, cosmetics, personalized items</li>
               </ul>
             </div>
+
           </div>
         </div>
 
-        {/* Return Process */}
-        <div className="bg-white rounded-lg shadow-md p-6">
-          <h2 className="text-2xl font-semibold text-gray-800 mb-4">Return Process</h2>
-          
-          <div className="grid md:grid-cols-4 gap-4">
-            <div className="text-center">
-              <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-2">
-                <span className="text-blue-600 font-bold">1</span>
+        {/* Return Process Section */}
+        <div className="bg-white rounded-xl shadow-md p-8 border border-gray-100 mb-8">
+          <h2 className="text-2xl font-bold text-gray-800 mb-6 flex items-center gap-3">
+            <PackageOpen className="text-purple-600" /> Return Process
+          </h2>
+
+          <div className="grid md:grid-cols-4 gap-6 text-center">
+
+            <div>
+              <div className="w-14 h-14 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-2">
+                <span className="text-blue-600 font-bold text-xl">1</span>
               </div>
               <h3 className="font-semibold text-gray-700">Request Return</h3>
-              <p className="text-sm text-gray-600 mt-1">Initiate return in 'My Orders'</p>
+              <p className="text-sm text-gray-600 mt-1">From My Orders</p>
             </div>
 
-            <div className="text-center">
-              <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-2">
-                <span className="text-green-600 font-bold">2</span>
+            <div>
+              <div className="w-14 h-14 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-2">
+                <span className="text-green-600 font-bold text-xl">2</span>
               </div>
               <h3 className="font-semibold text-gray-700">Pickup Scheduled</h3>
-              <p className="text-sm text-gray-600 mt-1">We schedule pickup within 24 hours</p>
+              <p className="text-sm text-gray-600 mt-1">Usually within 24 hours</p>
             </div>
 
-            <div className="text-center">
-              <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-2">
-                <span className="text-purple-600 font-bold">3</span>
+            <div>
+              <div className="w-14 h-14 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-2">
+                <span className="text-purple-600 font-bold text-xl">3</span>
               </div>
               <h3 className="font-semibold text-gray-700">Quality Check</h3>
-              <p className="text-sm text-gray-600 mt-1">Product verified at our facility</p>
+              <p className="text-sm text-gray-600 mt-1">At our facility</p>
             </div>
 
-            <div className="text-center">
-              <div className="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-2">
-                <span className="text-orange-600 font-bold">4</span>
+            <div>
+              <div className="w-14 h-14 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-2">
+                <span className="text-orange-600 font-bold text-xl">4</span>
               </div>
               <h3 className="font-semibold text-gray-700">Refund Initiated</h3>
-              <p className="text-sm text-gray-600 mt-1">Refund processed after approval</p>
+              <p className="text-sm text-gray-600 mt-1">After verification</p>
             </div>
+
           </div>
         </div>
 
         {/* Important Notes */}
-        <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-6">
-          <h3 className="text-lg font-semibold text-yellow-800 mb-3">Important Notes</h3>
+        <div className="bg-yellow-50 border border-yellow-300 rounded-xl p-8 mb-10">
+          <h3 className="text-xl font-bold text-yellow-800 mb-4 flex items-center gap-2">
+            <Info className="text-yellow-700" /> Important Notes
+          </h3>
           <ul className="text-yellow-700 list-disc list-inside space-y-2">
-            <li>Refund time may vary based on your bank's processing time</li>
-            <li>Shipping charges are non-refundable unless the return is due to our error</li>
-            <li>For Cash on Delivery returns, refund will be processed to your bank account via NEFT</li>
-            <li>Keep the product in original condition until pickup is completed</li>
-            <li>Contact customer support for any delays in refund processing</li>
+            <li>Refund timelines vary based on banks.</li>
+            <li>Shipping charges are non-refundable unless it was our error.</li>
+            <li>COD refunds are issued via NEFT to your bank account.</li>
+            <li>Keep product in original condition until pickup.</li>
+            <li>Contact support if refund delays exceed 10 days.</li>
           </ul>
         </div>
 
-        {/* Contact Support */}
-        <div className="bg-blue-50 border border-blue-200 rounded-lg p-6 text-center">
-          <h3 className="text-lg font-semibold text-blue-800 mb-2">Need Help?</h3>
-          <p className="text-blue-700 mb-3">
-            Our customer support team is here to help you with any cancellation or refund queries.
+        {/* Support Section */}
+        <div className="bg-blue-50 border border-blue-200 rounded-xl p-8 text-center">
+          <h3 className="text-xl font-bold text-blue-800 mb-2">Need Help?</h3>
+          <p className="text-blue-700 mb-4">
+            Our support team is available 24/7 for any cancellation or refund queries.
           </p>
-          <button className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition duration-200">
+          <Link
+            to="/contact"
+            className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition"
+          >
             Contact Support
-          </button>
+          </Link>
         </div>
       </div>
     </div>
-     <Footer/>
-    </div>
-  )
-}
+  );
+};
 
-export default Cancellation
+export default Cancellation;

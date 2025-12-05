@@ -1,87 +1,103 @@
-import React from 'react'
-import Footer from '../components/Footer'
+import React from 'react';
+import { ShieldCheck, CreditCard, Globe, Lock, PhoneCall } from 'lucide-react';
 
 const Security = () => {
   return (
-    <div>
-    <div className="security-page max-w-4xl mx-auto px-4 py-8">
-      <h1 className="text-3xl font-bold text-gray-800 mb-6">Safe and Secure Shopping</h1>
-      
-      <div className="bg-white rounded-lg shadow-md p-6 mb-6">
-        <h2 className="text-xl font-semibold text-gray-700 mb-4">
-          Is making online payment secure on FTS Shopping?
-        </h2>
-        <p className="text-green-600 font-medium text-lg">
-          Yes, making the online payment is secure on FTS Shopping
-        </p>
-      </div>
+    <div className="bg-gray-50 min-h-screen py-12 px-4">
+      <div className="max-w-5xl mx-auto">
 
-      <div className="space-y-6">
-        <div className="bg-white rounded-lg shadow-md p-6">
-          <h3 className="text-lg font-semibold text-gray-800 mb-3">
-            Does FTS Shopping store my credit/debit card information?
-          </h3>
-          <p className="text-gray-600">
-            No. FTS Shopping only stores the last 4 digits of your card number for the purpose of card identification.
+        {/* Header */}
+        <div className="text-center mb-12">
+          <ShieldCheck className="mx-auto text-green-600" size={60} />
+          <h1 className="text-4xl font-bold text-gray-800 mt-4">Safe & Secure Shopping</h1>
+          <p className="text-gray-600 mt-2 text-lg">
+            Your trust and safety are our highest priority.
           </p>
         </div>
 
-        <div className="bg-white rounded-lg shadow-md p-6">
-          <h3 className="text-lg font-semibold text-gray-800 mb-3">
-            What credit/debit cards are accepted on FTS Shopping?
-          </h3>
-          <p className="text-gray-600">
-            We accept VISA, MasterCard, Maestro, Rupay, American Express, Diner's Club and Discover credit/debit cards.
+        {/* Main card */}
+        <div className="bg-white shadow-lg rounded-xl p-8 mb-10 border border-gray-100">
+          <h2 className="text-2xl font-semibold text-gray-700 flex items-center gap-3 mb-4">
+            <Lock className="text-green-600" /> Is online payment secure on FirstUShop Shopping?
+          </h2>
+          <p className="text-green-600 font-medium text-lg">
+            Yes, all online payments on FirstUShop Shopping are 100% secure and protected with advanced encryption.
           </p>
         </div>
 
-        <div className="bg-white rounded-lg shadow-md p-6">
-          <h3 className="text-lg font-semibold text-gray-800 mb-3">
-            Do you accept payment made by credit/debit cards issued in other countries?
-          </h3>
-          <p className="text-gray-600 mb-2">
-            Yes! We accept VISA, MasterCard, Maestro, American Express credit/debit cards issued by banks in India and in the following countries: 
-            Australia, Austria, Belgium, Canada, Cyprus, Denmark, Finland, France, Germany, Ireland, Italy, Luxembourg, 
-            the Netherlands, New Zealand, Norway, Portugal, Singapore, Spain, Sweden, the UK and the US.
-          </p>
-          <p className="text-gray-600 italic">
-            Please note that we do not accept internationally issued credit/debit cards for eGV payments/top-ups.
-          </p>
-        </div>
+        {/* Sections */}
+        <div className="space-y-8">
 
-        <div className="bg-white rounded-lg shadow-md p-6">
-          <h3 className="text-lg font-semibold text-gray-800 mb-3">
-            What other payment options are available on FTS Shopping?
-          </h3>
-          <p className="text-gray-600">
-            Apart from Credit and Debit Cards, we accept payments via Internet Banking (covering 44 banks), 
-            Cash on Delivery, Equated Monthly Installments (EMI), E-Gift Vouchers, FTS Shopping Pay Later, 
-            UPI, Wallet, and Paytm Postpaid.
-          </p>
-        </div>
+          {/* Card 1 */}
+          <div className="bg-white rounded-xl shadow-md p-6 border border-gray-100">
+            <h3 className="text-xl font-semibold text-gray-800 flex items-center gap-2 mb-3">
+              <CreditCard className="text-blue-500" /> Do you store card information?
+            </h3>
+            <p className="text-gray-600">
+              No. We only store the last 4 digits of your card for easy identification.  
+              All sensitive card details are processed securely by certified payment gateways.
+            </p>
+          </div>
 
-        <div className="bg-white rounded-lg shadow-md p-6">
-          <h3 className="text-lg font-semibold text-gray-800 mb-3">
-            Privacy Policy
-          </h3>
-          <p className="text-gray-600">
-            FTS Shopping respects your privacy and is committed to protecting it. For more details, please see our Privacy Policy.
-          </p>
-        </div>
+          {/* Card 2 */}
+          <div className="bg-white rounded-xl shadow-md p-6 border border-gray-100">
+            <h3 className="text-xl font-semibold text-gray-800 flex items-center gap-2 mb-3">
+              <CreditCard className="text-purple-500" /> Accepted Cards
+            </h3>
+            <p className="text-gray-600">
+              We accept VISA, MasterCard, Maestro, Rupay, American Express, Diner's Club, and Discover.
+            </p>
+          </div>
 
-        <div className="bg-white rounded-lg shadow-md p-6">
-          <h3 className="text-lg font-semibold text-gray-800 mb-3">
-            Contact Us
-          </h3>
-          <p className="text-gray-600">
-            If you have any security concerns or questions, please don't hesitate to contact our customer support team.
-          </p>
+          {/* Card 3 */}
+          <div className="bg-white rounded-xl shadow-md p-6 border border-gray-100">
+            <h3 className="text-xl font-semibold text-gray-800 flex items-center gap-2 mb-3">
+              <Globe className="text-orange-500" /> International Cards
+            </h3>
+            <p className="text-gray-600">
+              International cards from India, USA, UK, Canada, Australia, Europe, Singapore, and more are accepted.
+            </p>
+            <p className="text-gray-600 italic mt-1">
+              International cards cannot be used for e-gift voucher top-ups.
+            </p>
+          </div>
+
+          {/* Card 4 */}
+          <div className="bg-white rounded-xl shadow-md p-6 border border-gray-100">
+            <h3 className="text-xl font-semibold text-gray-800 flex items-center gap-2 mb-3">
+              <ShieldCheck className="text-green-600" /> Other Payment Options
+            </h3>
+            <p className="text-gray-600">
+              Internet Banking, UPI, Wallets, Cash on Delivery, EMI, Pay Later, e-Gift Vouchers & more.
+            </p>
+          </div>
+
+          {/* Card 5 */}
+          <div className="bg-white rounded-xl shadow-md p-6 border border-gray-100">
+            <h3 className="text-xl font-semibold text-gray-800 flex items-center gap-2 mb-3">
+              <Lock className="text-indigo-500" /> Privacy Protection
+            </h3>
+            <p className="text-gray-600">
+              We never share your personal or payment information with third parties.  
+              For details, please check our Privacy Policy.
+            </p>
+          </div>
+
+          {/* Contact */}
+          <div className="bg-white rounded-xl shadow-md p-6 border border-gray-100">
+            <h3 className="text-xl font-semibold text-gray-800 flex items-center gap-2 mb-3">
+              <PhoneCall className="text-red-500" /> Need Help?
+            </h3>
+            <p className="text-gray-600">
+              If you have any questions related to security, payment, or privacy,  
+              our support team is available 24×7 to assist you.
+            </p>
+          </div>
+
         </div>
       </div>
     </div>
-       <Footer/>
-    </div>
-  )
-}
+  );
+};
 
-export default Security
+export default Security;
