@@ -24,7 +24,8 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-[#5D0E41] text-white pt-16 pb-6 font-sans relative">
+  <footer className="bg-gradient-to-r from-gray-800 to-gray-700 text-white py-10 px-6">
+
       <div className="container mx-auto px-4">
 
         {/* Main Footer Grid */}
@@ -122,8 +123,8 @@ const Footer = () => {
         </div>
 
         {/* Footer Bottom */}
-        <div className="border-t border-gray-700 text-center pt-6 mt-8">
-          <p className="bg-clip-text text-transparent bg-gradient-to-r from-purple-600 via-rose-500 to-orange-400 text-sm tracking-wide">
+        <div className="border-t border-gray-400 text-center pt-6 mt-8">
+          <p className="bg-clip-text text-transparent bg-white text-md tracking-wide">
             © 2025 First Track Solution Technologies. All Rights Reserved.
           </p>
         </div>
