@@ -13,7 +13,8 @@ const ShopNowLink = () => (
 
 const NewArrival = () => {
   return (
-    <div className="bg-[#FFF4F9] text-gray-900 dark:text-white py-10 px-4 sm:px-8 font-sans">
+   <div className="bg-gradient-to-r from-blue-100 to-indigo-200 text-gray-900 dark:text-white py-10 px-4 sm:px-8 font-sans">
+
       <div className="max-w-7xl mx-auto">
         
         {/* Header */}
@@ -33,7 +34,7 @@ const NewArrival = () => {
           {/* Left — Highlight Card */}
           <div className="relative bg-white dark:bg-[#2a0a0a] rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all p-8 min-h-[35rem] flex flex-col justify-end">
             <img
-              src="/image/l7.jpg"
+              src="/image/topwear.jpg"
               alt="Tshirt"
               className="absolute inset-0 w-full h-full object-cover object-center scale-100 group-hover:scale-105 transition-transform duration-700 opacity-90"
               onError={(e) =>

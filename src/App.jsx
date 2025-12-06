@@ -38,7 +38,7 @@ import BottomWear from './pages/BottomWear'
 function App() {
   return (
     <Router>
-      <div className="App flex flex-col min-h-screen">
+      <div className="App flex flex-col min-h-screen pt-20">
         {/* Navbar always visible */}
         <Navbar />
 
