@@ -349,4 +349,29 @@ export const products = [
   category: "electronics",
 },
 
+{
+    id: 11,
+    name: "Winter Jacket",
+    price: 999,
+    image: "link",
+    category: "men",
+    promoTag: "mega-sale",
+  },
+  {
+    id: 12,
+    name: "Hoodie",
+    price: 799,
+    image: "link",
+    category: "men",
+    promoTag: "winter",  
+  },
+  {
+    id: 13,
+    name: "Home Decor Lamp",
+    price: 499,
+    image: "link",
+    category: "home",
+    promoTag: "festival",  
+  },
+
 ]

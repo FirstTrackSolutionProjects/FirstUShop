@@ -6,16 +6,21 @@ const FootWear = () => {
 
 const products = [
 
-  { id: 1, name: "Black Air Force 1", category: "SPORTS", price: "₹8,999", numericPrice: 8999, brand: "Nike", color: "Black", rating: 4.5, image: "https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60" },
-  { id: 2, name: "Green & White Runner", category: "SPORTS", price: "₹7,499", numericPrice: 7499, brand: "Adidas", color: "Green", rating: 4.2, image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60" },
-  { id: 3, name: "Red & White High-Tops", category: "CASUAL", price: "₹12,495", numericPrice: 12495, brand: "Converse", color: "Red", rating: 4.7, image: "https://images.unsplash.com/photo-1605030753481-bb38b08c384a?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60" },
-  { id: 4, name: "Blue Sport Running", category: "SPORTS", price: "₹9,499", numericPrice: 9499, brand: "Nike", color: "Blue", rating: 4.3, image: "https://images.unsplash.com/photo-1460353581641-37baddab0fa2?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60" },
-  { id: 5, name: "Classic White Sneakers", category: "CASUAL", price: "₹6,999", numericPrice: 6999, brand: "Adidas", color: "White", rating: 4.8, image: "https://images.unsplash.com/photo-1549289524-06cf8837ace4?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60" },
-  { id: 6, name: "Urban Street Style", category: "CASUAL", price: "₹11,299", numericPrice: 11299, brand: "Puma", color: "Gray", rating: 4.1, image: "https://images.unsplash.com/photo-1560769624-6a4c2dfc7f4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60" },
-  { id: 7, name: "Premium Leather Boots", category: "LEATHER", price: "₹15,999", numericPrice: 15999, brand: "Woodland", color: "Brown", rating: 4.6, image: "https://images.unsplash.com/photo-1608256246200-53e635b5b65f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60" },
-  { id: 8, name: "Orange Trail Runners", category: "SPORTS", price: "₹8,299", numericPrice: 8299, brand: "Skechers", color: "Orange", rating: 4.0, image: "https://images.unsplash.com/photo-1573100925118-870b8efc799d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60" },
-  { id: 9, name: "Maroon Formal Shoes", category: "FORMAL", price: "₹10,499", numericPrice: 10499, brand: "Hush Puppies", color: "Maroon", rating: 4.4, image: "https://images.unsplash.com/photo-1460353581641-37baddab0fa2?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60" },
-  { id: 10, name: "Purple Basketball Shoes", category: "SPORTS", price: "₹13,499", numericPrice: 13499, brand: "Nike", color: "Purple", rating: 4.9, image: "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60" },
+  { id: 1, name: "Black Air Force 1", category: "SPORTS", price: "₹8,999", numericPrice: 8999, brand: "Nike", color: "Black", rating: 4.5, image: "/image/shoes1.jpeg" },
+  { id: 2, name: "Green & White Runner", category: "SPORTS", price: "₹7,499", numericPrice: 7499, brand: "Adidas", color: "Green", rating: 4.2, image: "/image/shoes2.jpeg" },
+  { id: 3, name: "White High-Tops", category: "CASUAL", price: "₹12,495", numericPrice: 12495, brand: "Converse", color: "white", rating: 4.7, image: "/image/shoes3.jpeg" },
+  { id: 4, name: "Blue Sport Running", category: "SPORTS", price: "₹9,499", numericPrice: 9499, brand: "Nike", color: "Blue", rating: 4.3, image:"/image/shoes4.jpeg" },
+  { id: 5, name: "Classic White Sneakers", category: "CASUAL", price: "₹6,999", numericPrice: 6999, brand: "Adidas", color: "White", rating: 4.8, image: "/image/shoes5.jpeg" },
+  { id: 6, name: "Urban Street Style", category: "CASUAL", price: "₹11,299", numericPrice: 11299, brand: "Puma", color: "Gray", rating: 4.1, image: "/image/shoes6.jpeg" },
+  { id: 7, name: "Premium Leather Boots", category: "LEATHER", price: "₹15,999", numericPrice: 15999, brand: "Woodland", color: "Brown", rating: 4.6, image:"/image/shoes7.jpeg" },
+  { id: 8, name: "Orange Trail Runners", category: "SPORTS", price: "₹8,299", numericPrice: 8299, brand: "Skechers", color: "Orange", rating: 4.0, image: "/image/shoes8.jpeg" },
+  { 
+  id: 9, name: "Block Heel Sandals",category: "WOMEN HEELS", price: "₹2,499",numericPrice: 2499, brand: "Catwalk", color: "Beige", rating: 4.5, image: "/image/shoes9.jpeg"
+  },
+  {
+  id: 10, name: "Purple Metallic Party Heels", category: "WOMEN HEELS", price: "₹3,199", numericPrice: 3199, brand: "Metro", color: "Purple", rating: 4.7, image: "/image/shoes10.jpeg"
+  },
+
 ];
 
 

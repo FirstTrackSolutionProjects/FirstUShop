@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { useCart } from "../context/CartContext";   // ✅ FIXED
+import { useCart } from "../context/CartContext";  
 
-// Icons
 import {
-  MagnifyingGlassIcon,
+  // MagnifyingGlassIcon,
   HeartIcon,
   ShoppingCartIcon,
   Bars3Icon,
@@ -12,7 +11,7 @@ import {
 } from "@heroicons/react/24/outline";
 
 const Navbar = () => {
-  const { cart } = useCart();     // ✅ FIXED
+  const { cart } = useCart();     
   const cartItemCount = cart.length;
   const navigate = useNavigate();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -24,7 +23,7 @@ const Navbar = () => {
         {/* LOGO + BRAND */}
         <div className="flex items-center space-x-3">
           <Link to="/">
-            <div className="w-11 h-11 rounded-full overflow-hidden border border-gray-300 shadow-lg">
+            <div className="w-11 h-11 rounded-full overflow-hidden border-gray-300 shadow-lg">
               <img
                 src="/image/logo.png"
                 alt="Logo"
@@ -37,7 +36,7 @@ const Navbar = () => {
             <span className="bg-clip-text text-transparent bg-black">
               First
             </span>
-            <span className="bg-clip-text text-transparent bg-blue-600">
+            <span className="bg-clip-text text-transparent bg-red-600">
               U
             </span>
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-700 to-pink-700">
@@ -56,14 +55,14 @@ const Navbar = () => {
             <li><Link to="/login" className="hover:text-black">Log In</Link></li>
           </ul>
 
-          <div className="flex items-center bg-white rounded-full px-3 py-1.5 shadow-inner">
+          {/* <div className="flex items-center bg-white rounded-full px-3 py-1.5 shadow-inner">
             <input
               type="text"
               placeholder="Search..."
               className="bg-transparent outline-none text-sm w-36 placeholder-gray-600"
             />
             <MagnifyingGlassIcon className="h-4 w-4 text-gray-600" />
-          </div>
+          </div> */}
 
           <HeartIcon className="w-6 h-6 text-white hover:text-red-600 cursor-pointer transition" />
 

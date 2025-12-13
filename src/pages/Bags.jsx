@@ -2,12 +2,12 @@ import React, { useState, useMemo } from 'react';
 
 // --- Bags Data ---
 const bags = [
-  { id: 1, brand: 'Hidesign', name: 'Leather Handbag', price: '₹5,999', image: '/image/b1.jpg', category: 'Handbag' },
-  { id: 2, brand: 'Puma', name: 'Sports Backpack', price: '₹2,799', image: '/image/b2.jpg', category: 'Backpack' },
-  { id: 3, brand: 'Fossil', name: 'Sling Bag', price: '₹3,499', image: '/image/b3.jpg', category: 'Sling Bag' },
-  { id: 4, brand: 'Titan', name: 'Leather Tote Bag', price: '₹4,199', image: '/image/b4.jpg', category: 'Tote Bag' },
-  { id: 5, brand: 'Hidesign', name: 'Mini Handbag', price: '₹4,599', image: '/image/b5.jpg', category: 'Handbag' },
-  { id: 6, brand: 'Puma', name: 'Travel Backpack', price: '₹3,299', image: '/image/b6.jpg', category: 'Backpack' },
+  { id: 1, brand: 'Hidesign', name: 'Leather Handbag', price: '₹5,999', image: '/image/bag1.jpeg', category: 'Handbag' },
+  { id: 2, brand: 'Puma', name: 'Sports Backpack', price: '₹2,799', image: '/image/bag2.jpeg', category: 'Backpack' },
+  { id: 3, brand: 'Fossil', name: 'Sling Bag', price: '₹3,499', image: '/image/bag3.jpeg', category: 'Sling Bag' },
+  { id: 4, brand: 'Titan', name: 'Leather Tote Bag', price: '₹4,199', image: '/image/bag4.jpeg', category: 'Tote Bag' },
+  { id: 5, brand: 'Hidesign', name: 'Mini Handbag', price: '₹4,599', image: '/image/bag5.jpeg', category: 'Handbag' },
+  { id: 6, brand: 'Puma', name: 'Travel Backpack', price: '₹3,299', image: '/image/bag6.jpeg', category: 'Backpack' },
 ];
 
 const Bags = () => {

@@ -1,14 +1,15 @@
 import React, { useState, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+
 // --- Top Wear Data ---
 const topWear = [
-  { id: 1, brand: 'UrbanFit', name: 'Men Casual Shirt', price: '₹1,199', image: '/image/menshirt1.jpg', category: 'Men' },
-  { id: 2, brand: 'StyleAura', name: 'Women Printed Top', price: '₹899', image: '/image/womentop1.jpg', category: 'Women' },
-  { id: 3, brand: 'UrbanFit', name: 'Men Slim Fit Polo', price: '₹1,399', image: '/image/menshirt2.jpg', category: 'Men' },
-  { id: 4, brand: 'StyleAura', name: 'Women Sleeveless Top', price: '₹999', image: '/image/womentop2.jpg', category: 'Women' },
-  { id: 5, brand: 'UrbanFit', name: 'Men Checked Shirt', price: '₹1,299', image: '/image/menshirt3.jpg', category: 'Men' },
-  { id: 6, brand: 'StyleAura', name: 'Women Casual Blouse', price: '₹1,099', image: '/image/womentop3.jpg', category: 'Women' },
+  { id: 1, brand: 'UrbanFit', name: 'Men Casual Shirt', price: '₹1,199', image: '/image/mtop1.jpeg', category: 'Men' },
+  { id: 2, brand: 'StyleAura', name: 'Women Printed Top', price: '₹899', image: '/image/wtop1.jpeg', category: 'Women' },
+  { id: 3, brand: 'UrbanFit', name: 'Men Slim Fit Polo', price: '₹1,399', image: '/image/mtop2.jpeg', category: 'Men' },
+  { id: 4, brand: 'StyleAura', name: 'Women Sleeveless Top', price: '₹999', image: '/image/wtop2.jpeg', category: 'Women' },
+  { id: 5, brand: 'UrbanFit', name: 'Men Checked Shirt', price: '₹1,299', image: '/image/mtop3.jpeg', category: 'Men' },
+  { id: 6, brand: 'StyleAura', name: 'Women Casual Blouse', price: '₹1,099', image: '/image/wtop3.jpeg', category: 'Women' },
 ];
 
 

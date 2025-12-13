@@ -2,10 +2,10 @@ import React, { useState, useMemo } from 'react';
 
 // --- Product Data ---
 const products = [
-  { id: 1, brand: 'Fenty Beauty', name: "Pro Filt'r Foundation", price: '₹3,499', image: '/image/co1.jpg', category: 'Makeup' },
-  { id: 2, brand: 'Dior', name: "J'adore Eau de Parfum", price: '₹12,999', image: '/image/co2.jpg', category: 'Fragrance' },
-  { id: 3, brand: 'The Ordinary', name: 'Niacinamide 10% + Zinc 1%', price: '₹899', image: '/image/co3.jpg', category: 'Skincare' },
-  { id: 4, brand: 'MAC', name: 'Ruby Woo Lipstick', price: '₹1,799', image: '/image/co4.jpg', category: 'Makeup' },
+  { id: 1, brand: 'Fenty Beauty', name: "Pro Filt'r Foundation", price: '₹3,499', image: '/image/cos1.jpeg', category: 'Makeup' },
+  { id: 2, brand: 'Dior', name: "J'adore Eau de Perfume", price: '₹12,999', image: '/image/cos2.jpeg', category: 'Fragrance' },
+  { id: 3, brand: 'The Ordinary', name: 'Niacinamide 10% + Zinc 1%', price: '₹899', image: '/image/cos3.jpeg', category: 'Skincare' },
+  { id: 4, brand: 'MAC', name: 'Ruby Woo Lipstick', price: '₹1,799', image: '/image/cos4.jpeg', category: 'Makeup' },
 ];
 
 const Cosmetic = () => {

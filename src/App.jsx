@@ -1,5 +1,7 @@
 import React from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { products } from "/src/data/products.js";
+
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import Home from './pages/Home'
@@ -18,6 +20,8 @@ import Aboutus from './pages/Aboutus'
 import Security from './pages/Security'
 
 import Explore from './pages/Explore'
+import PromoProducts from './pages/PromoProducts'
+import BudgetPage from './pages/BudgetPage'
 import CartPage from './pages/CartPage'
 import ProductDetails from './pages/ProductDetails'
 import Categorypage from './pages/Categorypage'
@@ -60,6 +64,9 @@ function App() {
           <Route path="/privacy" element={<Privacy />} />
 
           <Route path="/explore" element={<Explore />} />
+          <Route path="/promo" element={<PromoProducts allProducts={products} />} />
+          <Route path="/budget/:max" element={<BudgetPage />} />
+
           <Route path="/cart" element={<CartPage />} />
           <Route path="/product/:id" element={<ProductDetails />} />
           <Route path="/category/:slug" element={<Categorypage />} />

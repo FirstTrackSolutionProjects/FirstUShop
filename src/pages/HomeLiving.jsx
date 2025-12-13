@@ -2,12 +2,12 @@ import React, { useState, useMemo } from 'react';
 
 // --- Home Living Data ---
 const homeliving = [
-  { id: 1, brand: 'HomeCentre', name: 'Cotton Bedsheet Set', price: '₹2,499', image: '/image/h1.jpg', category: 'Bedding' },
-  { id: 2, brand: 'Ikea', name: 'Blackout Curtains', price: '₹1,299', image: '/image/h2.jpg', category: 'Curtains' },
-  { id: 3, brand: 'West Elm', name: 'Ceramic Vase', price: '₹899', image: '/image/h3.jpg', category: 'Decor' },
-  { id: 4, brand: 'Prestige', name: 'Non-Stick Cookware Set', price: '₹3,499', image: '/image/h4.jpg', category: 'Kitchenware' },
-  { id: 5, brand: 'HomeCentre', name: 'Throw Pillow Set', price: '₹1,199', image: '/image/h5.jpg', category: 'Decor' },
-  { id: 6, brand: 'Ikea', name: 'Kitchen Storage Rack', price: '₹1,799', image: '/image/h6.jpg', category: 'Kitchenware' },
+  { id: 1, brand: 'HomeCentre', name: 'Cotton Bedsheet Set', price: '₹2,499', image: '/image/h1.jpeg', category: 'Bedding' },
+  { id: 2, brand: 'Ikea', name: 'Blackout Curtains', price: '₹1,299', image: '/image/h2.jpeg', category: 'Curtains' },
+  { id: 3, brand: 'West Elm', name: 'Ceramic Vase', price: '₹899', image: '/image/h3.jpeg', category: 'Decor' },
+  { id: 4, brand: 'Prestige', name: 'Non-Stick Cookware Set', price: '₹3,499', image: '/image/h4.jpeg', category: 'Kitchenware' },
+  { id: 5, brand: 'HomeCentre', name: 'Throw Pillow Set', price: '₹1,199', image: '/image/h5.jpeg', category: 'Decor' },
+  { id: 6, brand: 'Ikea', name: 'Kitchen Storage Rack', price: '₹1,799', image: '/image/h6.jpeg', category: 'Kitchenware' },
 ];
 
 const HomeLiving = () => {
