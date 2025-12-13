@@ -4,18 +4,25 @@ import { FaFilter, FaTag, FaUserAlt } from "react-icons/fa";
 // Kurta Data
 const kurtas = [
 
-  { id: 1, brand: "FabIndia", name: "Silk Blend Kurta", price: "₹2,499", image: "/image/k1.jpg", category: "Men" },
-  { id: 2, brand: "Anokhi", name: "Printed Cotton Kurta", price: "₹1,799", image: "/image/k2.jpg", category: "Women" },
 
   // --- MEN ---
-  { id: 3, brand: "Manyavar", name: "Classic Solid Kurta", price: "₹1,999", image: "/image/k5.jpg", category: "Men" },
-  { id: 4, brand: "Wrogn", name: "Textured Festive Kurta", price: "₹1,899", image: "/image/k6.jpg", category: "Men" },
+  { id: 1, brand: "FabIndia", name: "Silk Blend Kurta", price: "₹2,499", image: "/image/m1.jpg", category: "Men Kurta" },
+  { id: 2, brand: "Manyavar", name: "Classic Solid Kurta", price: "₹1,999", image: "/image/m2.jpeg", category: "Men Kurta" },
+  { id: 3, brand: "Wrogn", name: "Textured Festive Kurta", price: "₹1,899", image: "/image/m3.jpeg", category: "Men Kurta" },
+  { id: 4, brand: "FabIndia", name: "Cotton Pathani Suit", price: "₹2,299", image: "/image/m4.jpeg", category: "Men Ethnic Suit" },
+  { id: 5, brand: "Manyavar", name: "Designer Sherwani", price: "₹5,999", image: "/image/m5.jpeg", category: "Men Sherwani" },
 
   // --- WOMEN ---
-  { id: 7, brand: "Biba", name: "Floral A-Line Kurta", price: "₹1,599", image: "/image/k8.jpg", category: "Women" },
-  { id: 8, brand: "Aurelia", name: "Straight Embroidered Kurta", price: "₹1,299", image: "/image/k9.jpg", category: "Women" },
-  { id: 10, brand: "Libas", name: "Geometric Print Kurta", price: "₹1,399", image: "/image/k10.jpg", category: "Women" },
+  { id: 6, brand: "Anokhi", name: "Printed Cotton Kurta", price: "₹1,799", image: "/image/w1.jpeg", category: "Women Kurta" },
+  { id: 7, brand: "Biba", name: "Floral A-Line Kurta", price: "₹1,599", image: "/image/w2.jpeg", category: "Women Kurta" },
+  { id: 8, brand: "Aurelia", name: "Straight Embroidered Kurta", price: "₹1,299", image: "/image/w3.jpeg", category: "Women Kurta" },
+  { id: 9, brand: "Libas", name: "Geometric Print Kurta", price: "₹1,399", image: "/image/w4.jpeg", category: "Women Kurta" },
+  { id: 10, brand: "SareeHub", name: "Banarasi Silk Saree", price: "₹3,499", image: "/image/w5.jpeg", category: "Women Saree" },
+  { id: 11, brand: "FabIndia", name: "Embroidered Lehenga", price: "₹4,299", image: "/image/w6.jpeg", category: "Women Lehenga" },
+  { id: 12, brand: "Biba", name: "Cotton Ethnic Top", price: "₹899", image: "/image/w7.jpeg", category: "Women Ethnic Top" }
 ];
+
+
 
 
 const EthnicWear = () => {
@@ -26,12 +33,14 @@ const EthnicWear = () => {
   };
 
   const filteredKurtas = useMemo(() => {
-    return kurtas.filter((kurta) => {
-      const brandMatch = filters.brand === "All" || kurta.brand === filters.brand;
-      const categoryMatch = filters.category === "All" || kurta.category === filters.category;
-      return brandMatch && categoryMatch;
-    });
-  }, [filters]);
+  return kurtas.filter((kurta) => {
+    const brandMatch = filters.brand === "All" || kurta.brand === filters.brand;
+    const categoryMatch =
+      filters.category === "All" || kurta.category.includes(filters.category);
+    return brandMatch && categoryMatch;
+  });
+}, [filters]);
+
 
   const brands = ["All", ...new Set(kurtas.map((kurta) => kurta.brand))];
   const categories = ["All", "Men", "Women"];
@@ -129,7 +138,7 @@ const EthnicWear = () => {
 
 
                 {/* Product Image */}
-                <div className="h-72 w-full overflow-hidden">
+                <div className="h-85 w-full overflow-hidden">
                   <img
                     src={item.image}
                     alt={item.name}

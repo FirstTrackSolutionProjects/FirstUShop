@@ -2,12 +2,12 @@ import React, { useState, useMemo } from 'react';
 
 // --- Accessories Data ---
 const accessories = [
-  { id: 1, brand: 'Fossil', name: 'Leather Belt', price: '₹1,299', image: '/image/a1.jpg', category: 'Belt' },
-  { id: 2, brand: 'Ray-Ban', name: 'Aviator Sunglasses', price: '₹4,499', image: '/image/a2.jpg', category: 'Sunglasses' },
-  { id: 3, brand: 'Titan', name: 'Wallet', price: '₹899', image: '/image/a3.jpg', category: 'Wallet' },
-  { id: 4, brand: 'Puma', name: 'Cap', price: '₹599', image: '/image/a4.jpg', category: 'Cap' },
-  { id: 5, brand: 'Fossil', name: 'Bracelet', price: '₹1,199', image: '/image/a5.jpg', category: 'Bracelet' },
-  { id: 6, brand: 'Ray-Ban', name: 'Round Sunglasses', price: '₹3,999', image: '/image/a6.jpg', category: 'Sunglasses' },
+  { id: 1, brand: 'Fossil', name: 'Leather Belt', price: '₹1,299', image: '/image/a1.jpeg', category: 'Belt' },
+  { id: 2, brand: 'Ray-Ban', name: 'Aviator Sunglasses', price: '₹4,499', image: '/image/a2.jpeg', category: 'Sunglasses' },
+  { id: 3, brand: 'Titan', name: 'Wallet', price: '₹899', image: '/image/a3.jpeg', category: 'Wallet' },
+  { id: 4, brand: 'Puma', name: 'Cap', price: '₹599', image: '/image/a4.jpeg', category: 'Cap' },
+  { id: 5, brand: 'Fossil', name: 'Bracelet', price: '₹1,199', image: '/image/a5.jpeg', category: 'Bracelet' },
+  { id: 6, brand: 'Ray-Ban', name: 'Wayfarer Sunglasses ', price: '₹5,299', image: '/image/a6.jpeg', category: 'Sunglasses' },
 ];
 
 const Accessories = () => {

@@ -1,12 +1,14 @@
 import React from "react";
-import { MagnifyingGlassIcon } from "@heroicons/react/24/outline"; // Heroicons for clean search icon
+import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 
-const SearchBar = () => {
+const SearchBar = ({ search, setSearch }) => {
   return (
     <div className="flex justify-center mb-8">
       <div className="relative w-full md:w-1/2">
         <input
           type="text"
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
           placeholder="Search categories..."
           className="w-full p-4 pl-14 rounded-full shadow-lg border border-gray-200 focus:ring-2 focus:ring-indigo-500 focus:outline-none transition"
         />

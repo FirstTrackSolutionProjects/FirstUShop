@@ -1,11 +1,9 @@
 import React from 'react';
 
-// Pure text-based arrow (No SVG)
 const ArrowRight = () => (
   <span className="ml-2 text-2xl group-hover:translate-x-1.5 transition-transform duration-300">→</span>
 );
 
-// Enhanced TrendzCard without any SVG
 const TrendzCard = ({ imageUrl, label, altText, isLarge = false }) => (
   <div className="group relative overflow-hidden rounded-2xl shadow-lg cursor-pointer h-full transition-all duration-500 hover:shadow-2xl">
     <img
@@ -39,7 +37,7 @@ const TrendCollection = () => {
       altText: 'Floral summer wear',
     },
     {
-      imageUrl: '/image/l2.jpg',
+      imageUrl: '/image/jewellery.jpg',
       label: 'Statement Accessories',
       altText: 'Stylish accessories',
     },

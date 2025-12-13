@@ -2,10 +2,10 @@ import React, { useState, useMemo } from 'react';
 
 // --- Jewellery Data ---
 const jewellery = [
-  { id: 1, brand: 'Kalyan', name: 'Diamond Solitaire Necklace', price: '₹89,999', image: '/image/ja1.jpg', type: 'Necklace' },
-  { id: 2, brand: 'Tanishq', name: 'Gold Jhumka Earrings', price: '₹45,499', image: '/image/ja2.jpg', type: 'Earrings' },
-  { id: 3, brand: 'CaratLane', name: 'Emerald Cut Ring', price: '₹62,899', image: '/image/ja3.jpg', type: 'Ring' },
-  { id: 4, brand: 'BlueStone', name: 'Classic Tennis Bracelet', price: '₹1,24,999', image: '/image/ja4.jpg', type: 'Bracelet' },
+  { id: 1, brand: 'Kalyan', name: 'Diamond Solitaire Necklace', price: '₹89,999', image: '/image/jewel1.jpeg', type: 'Necklace' },
+  { id: 2, brand: 'Tanishq', name: 'Gold Jhumka Earrings', price: '₹45,499', image: '/image/jewel2.jpeg', type: 'Earrings' },
+  { id: 3, brand: 'CaratLane', name: 'Emerald Cut Ring', price: '₹62,899', image: '/image/jewel3.jpeg', type: 'Ring' },
+  { id: 4, brand: 'BlueStone', name: 'Classic Tennis Bracelet', price: '₹1,24,999', image: '/image/jewel4.jpeg', type: 'Bracelet' },
 ];
 
 const Jewellery = () => {

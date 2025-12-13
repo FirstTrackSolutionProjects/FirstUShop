@@ -3,12 +3,12 @@ import { useNavigate } from 'react-router-dom';
 
 // --- Bottom Wear Data ---
 const bottomWear = [
-  { id: 1, brand: 'UrbanFit', name: 'Men Slim Fit Jeans', price: '₹1,499', image: '/image/menjeans1.jpg', category: 'Men' },
-  { id: 2, brand: 'StyleAura', name: 'Women A-Line Skirt', price: '₹999', image: '/image/womenskirt1.jpg', category: 'Women' },
-  { id: 3, brand: 'UrbanFit', name: 'Men Chino Pants', price: '₹1,299', image: '/image/menchino1.jpg', category: 'Men' },
-  { id: 4, brand: 'StyleAura', name: 'Women Palazzos', price: '₹1,099', image: '/image/womenpalazzo1.jpg', category: 'Women' },
-  { id: 5, brand: 'UrbanFit', name: 'Men Cargo Shorts', price: '₹1,199', image: '/image/mencargo1.jpg', category: 'Men' },
-  { id: 6, brand: 'StyleAura', name: 'Women Pencil Skirt', price: '₹1,299', image: '/image/womenpencil1.jpg', category: 'Women' },
+  { id: 1, brand: 'UrbanFit', name: 'Men Slim Fit Jeans', price: '₹1,499', image: '/image/mbottom1.jpeg', category: 'Men' },
+  { id: 2, brand: 'StyleAura', name: 'Women A-Line Skirt', price: '₹999', image: '/image/wbottom1.jpeg', category: 'Women' },
+  { id: 3, brand: 'UrbanFit', name: 'Men Chino Pants', price: '₹1,299', image: '/image/mbottom2.jpeg', category: 'Men' },
+  { id: 4, brand: 'StyleAura', name: 'Women Palazzos', price: '₹1,099', image: '/image/wbottom2.jpeg', category: 'Women' },
+  { id: 5, brand: 'UrbanFit', name: 'Men Cargo Shorts', price: '₹1,199', image: '/image/mbottom3.jpeg', category: 'Men' },
+  { id: 6, brand: 'StyleAura', name: 'Women Pencil Skirt', price: '₹1,299', image: '/image/wbottom3.jpeg', category: 'Women' },
 ];
 
 const BottomWear = () => {

@@ -2,10 +2,10 @@ import React, { useState, useMemo } from 'react';
 
 // --- Watch Data ---
 const watches = [
-  { id: 1, brand: 'Apex', name: 'Chronograph Steel', price: '₹4,999', image: '/image/w1.jpg', category: 'Men' },
-  { id: 2, brand: 'Nova', name: 'Elegance Gold', price: '₹3,499', image: '/image/w2.jpg', category: 'Women' },
-  { id: 3, brand: 'Zephyr', name: 'Classic Leather', price: '₹2,799', image: '/image/w3.jpg', category: 'Unisex' },
-  { id: 4, brand: 'Astra', name: 'Explorer Digital', price: '₹1,299', image: '/image/w4.jpg', category: 'Kids' },
+  { id: 1, brand: 'Apex', name: 'Chronograph Steel', price: '₹4,999', image: '/image/watch1.jpeg', category: 'Men' },
+  { id: 2, brand: 'Nova', name: 'Elegance Gold', price: '₹3,499', image: '/image/watch2.jpeg', category: 'Women' },
+  { id: 3, brand: 'Zephyr', name: 'Classic Leather', price: '₹2,799', image: '/image/watch3.jpeg', category: 'Unisex' },
+  { id: 4, brand: 'Astra', name: 'Explorer Digital', price: '₹1,299', image: '/image/watch4.jpeg', category: 'Kids' },
 ];
 
 const Watch = () => {

@@ -2,12 +2,12 @@ import React, { useState, useMemo } from 'react';
 
 // --- KidsWear Data ---
 const kidswear = [
-  { id: 1, brand: 'Gini & Jony', name: 'Cartoon Print T-Shirt', price: '₹799', image: '/image/k1.jpg', category: 'T-Shirt' },
-  { id: 2, brand: 'H&M', name: 'Denim Shorts', price: '₹999', image: '/image/k2.jpg', category: 'Shorts' },
-  { id: 3, brand: 'Mini Klub', name: 'Floral Dress', price: '₹1,299', image: '/image/k3.jpg', category: 'Dress' },
-  { id: 4, brand: 'UCB', name: 'Hooded Jacket', price: '₹1,499', image: '/image/k4.jpg', category: 'Jacket' },
-  { id: 5, brand: 'Gini & Jony', name: 'Striped T-Shirt', price: '₹699', image: '/image/k5.jpg', category: 'T-Shirt' },
-  { id: 6, brand: 'H&M', name: 'Cargo Shorts', price: '₹1,099', image: '/image/k6.jpg', category: 'Shorts' },
+  { id: 1, brand: 'Gini & Jony', name: 'Cartoon Print T-Shirt', price: '₹799', image: '/image/kid1.jpeg', category: 'T-Shirt' },
+  { id: 2, brand: 'H&M', name: 'Denim Shorts', price: '₹999', image: '/image/kid2.jpeg', category: 'Shorts' },
+  { id: 3, brand: 'Mini Klub', name: 'Floral Dress', price: '₹1,299', image: '/image/kid3.jpeg', category: 'Dress' },
+  { id: 4, brand: 'UCB', name: 'Hooded Jacket', price: '₹1,499', image: '/image/kid4.jpeg', category: 'Jacket' },
+  { id: 5, brand: 'Gini & Jony', name: 'Striped T-Shirt', price: '₹699', image: '/image/kid5.jpeg', category: 'T-Shirt' },
+  { id: 6, brand: 'H&M', name: 'Cargo Shorts', price: '₹1,099', image: '/image/kid6.jpeg', category: 'Shorts' },
 ];
 
 const KidsWear = () => {
