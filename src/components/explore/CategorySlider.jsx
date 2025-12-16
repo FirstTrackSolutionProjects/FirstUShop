@@ -10,40 +10,35 @@ const CategorySlider = ({ search }) => {
       name: "Women Fashion",
       icon: "👗",
       slug: "women-fashion",
-      image:
-        "https://images.unsplash.com/photo-1520975918318-3ff5c2f1f6b3?auto=format&fit=crop&w=800&q=80",
+      image: "/image/women-fashion.jpg",
       tag: "Trending",
     },
     {
       name: "Men Fashion",
       icon: "👕",
       slug: "men-fashion",
-      image:
-        "https://images.unsplash.com/photo-1521335629791-ce4aec67dd47?auto=format&fit=crop&w=800&q=80",
+      image:"/image/men-fashion.jpg",
       tag: "New",
     },
     {
       name: "Home & Kitchen",
       icon: "🏡",
       slug: "home-kitchen",
-      image:
-        "https://images.unsplash.com/photo-1600585153473-913b4a0f0b0a?auto=format&fit=crop&w=900&q=80",
+      image: "/image/home-kitchen.jpg",
       tag: "Popular",
     },
     {
       name: "Electronics",
       icon: "📱",
       slug: "electronics",
-      image:
-        "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=800&q=80",
+      image: "/image/electronics.jpg",
       tag: "Hot",
     },
     {
       name: "Baby Care",
       icon: "🍼",
       slug: "baby-care",
-      image:
-        "https://images.unsplash.com/photo-1542831371-d531d36971e6?auto=format&fit=crop&w=800&q=80",
+      image: "/image/baby-care.jpg",
       tag: "Best Seller",
     },
   ];

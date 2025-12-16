@@ -1,4 +1,6 @@
 import React from 'react';
+import { useNavigate } from "react-router-dom";
+
 
 const ArrowRight = () => (
   <span className="ml-2 text-2xl group-hover:translate-x-1.5 transition-transform duration-300">→</span>
@@ -24,6 +26,8 @@ const TrendzCard = ({ imageUrl, label, altText, isLarge = false }) => (
 );
 
 const TrendCollection = () => {
+    const navigate = useNavigate();
+
   const trendzItems = [
     {
       imageUrl: '/image/s9.jpg',
@@ -81,10 +85,14 @@ const TrendCollection = () => {
             </p>
 
             <div className="flex justify-center lg:justify-start pt-4 opacity-0 fade-in-up delay-3">
-              <button className="group flex items-center justify-center text-white font-bold text-lg px-8 py-4 rounded-full bg-gradient-to-r from-purple-600 to-rose-500 hover:from-purple-700 hover:to-rose-600 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105">
+             <button
+                onClick={() => navigate("/explore")}
+                className="group flex items-center justify-center text-white font-bold text-lg px-8 py-4 rounded-full bg-gradient-to-r from-purple-600 to-rose-500 hover:from-purple-700 hover:to-rose-600 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
+              >
                 Explore Collection
                 <ArrowRight />
               </button>
+
             </div>
           </div>
 

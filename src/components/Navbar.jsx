@@ -32,17 +32,20 @@ const Navbar = () => {
             </div>
           </Link>
 
-          <Link to="/" className="text-2xl font-extrabold flex gap-1">
-            <span className="bg-clip-text text-transparent bg-black">
+        <Link to="/" className="text-2xl font-extrabold flex items-baseline">
+          <span className="bg-clip-text text-transparent bg-black mr-1">
               First
             </span>
-            <span className="bg-clip-text text-transparent bg-red-600">
-              U
-            </span>
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-700 to-pink-700">
-              Shop
+            <span className="flex items-baseline">
+              <span className="bg-clip-text text-transparent bg-red-600">
+                U
+              </span>
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-700 to-pink-700">
+                Shop
+              </span>
             </span>
           </Link>
+
         </div>
 
         {/* DESKTOP MENU */}
@@ -50,8 +53,10 @@ const Navbar = () => {
           <ul className="flex items-center space-x-6 font-semibold text-white text-md">
             <li><Link to="/" className="hover:text-black">Home</Link></li>
             <li><Link to="/explore" className="hover:text-black">Explore</Link></li>
-            <li><Link to="/contact" className="hover:text-black">Contact</Link></li>
+            <li><Link to="/blog"
+            className="hover:text-black">Blog</Link></li>
             <li><Link to="/about" className="hover:text-black">About</Link></li>
+            <li><Link to="/contact" className="hover:text-black">Contact</Link></li>
             <li><Link to="/login" className="hover:text-black">Log In</Link></li>
           </ul>
 
@@ -111,8 +116,9 @@ const Navbar = () => {
         <ul className="flex flex-col items-start px-6 py-6 space-y-5 text-white font-semibold text-base">
           <li><Link to="/" onClick={() => setIsMenuOpen(false)}>Home</Link></li>
           <li><Link to="/explore" onClick={() => setIsMenuOpen(false)}>Explore</Link></li>
-          <li><Link to="/contact" onClick={() => setIsMenuOpen(false)}>Contact</Link></li>
+          <li><Link to="/blog" onClick={() => setIsMenuOpen(false)}>Blog</Link></li>
           <li><Link to="/about" onClick={() => setIsMenuOpen(false)}>About</Link></li>
+          <li><Link to="/contact" onClick={() => setIsMenuOpen(false)}>Contact</Link></li>
           <li><Link to="/login" onClick={() => setIsMenuOpen(false)}>Log In</Link></li>
         </ul>
       </div>

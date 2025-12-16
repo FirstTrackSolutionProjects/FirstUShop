@@ -1,125 +1,197 @@
-import React, { useState, useMemo } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState, useMemo, useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import { CartContext } from "../context/CartContext";
+import { FaTimes, FaCheck } from "react-icons/fa";
 
 // --- Bottom Wear Data ---
 const bottomWear = [
-  { id: 1, brand: 'UrbanFit', name: 'Men Slim Fit Jeans', price: '₹1,499', image: '/image/mbottom1.jpeg', category: 'Men' },
-  { id: 2, brand: 'StyleAura', name: 'Women A-Line Skirt', price: '₹999', image: '/image/wbottom1.jpeg', category: 'Women' },
-  { id: 3, brand: 'UrbanFit', name: 'Men Chino Pants', price: '₹1,299', image: '/image/mbottom2.jpeg', category: 'Men' },
-  { id: 4, brand: 'StyleAura', name: 'Women Palazzos', price: '₹1,099', image: '/image/wbottom2.jpeg', category: 'Women' },
-  { id: 5, brand: 'UrbanFit', name: 'Men Cargo Shorts', price: '₹1,199', image: '/image/mbottom3.jpeg', category: 'Men' },
-  { id: 6, brand: 'StyleAura', name: 'Women Pencil Skirt', price: '₹1,299', image: '/image/wbottom3.jpeg', category: 'Women' },
+  { id: 1, brand: "UrbanFit", name: "Men Slim Fit Jeans", price: 1499, image: "/image/mbottom1.jpeg", category: "Men", description: "Comfortable slim fit jeans for daily wear." },
+  { id: 2, brand: "StyleAura", name: "Women A-Line Skirt", price: 999, image: "/image/wbottom1.jpeg", category: "Women", description: "Elegant A-line skirt for casual & party wear." },
+  { id: 3, brand: "UrbanFit", name: "Men Chino Pants", price: 1299, image: "/image/mbottom2.jpeg", category: "Men", description: "Stylish chinos with perfect fit." },
+  { id: 4, brand: "StyleAura", name: "Women Palazzos", price: 1099, image: "/image/wbottom2.jpeg", category: "Women", description: "Trendy palazzos with soft fabric." },
+  { id: 5, brand: "UrbanFit", name: "Men Cargo Shorts", price: 1199, image: "/image/mbottom3.jpeg", category: "Men", description: "Utility cargo shorts for outdoor comfort." },
+  { id: 6, brand: "StyleAura", name: "Women Pencil Skirt", price: 1299, image: "/image/wbottom3.jpeg", category: "Women", description: "Formal pencil skirt with sleek design." },
 ];
 
 const BottomWear = () => {
   const navigate = useNavigate();
-  const [filters, setFilters] = useState({ brand: 'All', category: 'All' });
+  const { cart, addToCart, removeFromCart } = useContext(CartContext);
 
-  const handleFilterChange = (filterType, value) => {
-    setFilters(prev => ({ ...prev, [filterType]: value }));
-  };
+  const [filters, setFilters] = useState({ brand: "All", category: "All" });
+  const [quickView, setQuickView] = useState(null);
+
+  const isInCart = (id) => cart.some(item => item.id === id);
 
   const filteredItems = useMemo(() => {
     return bottomWear.filter(item => {
-      const brandMatch = filters.brand === 'All' || item.brand === filters.brand;
-      const categoryMatch = filters.category === 'All' || item.category === filters.category;
+      const brandMatch = filters.brand === "All" || item.brand === filters.brand;
+      const categoryMatch = filters.category === "All" || item.category === filters.category;
       return brandMatch && categoryMatch;
     });
   }, [filters]);
 
-  const brands = ['All', ...new Set(bottomWear.map(item => item.brand))];
-  const categories = ['All', 'Men', 'Women'];
+  const brands = ["All", ...new Set(bottomWear.map(i => i.brand))];
+  const categories = ["All", "Men", "Women"];
 
   return (
-    <div className="bg-gray-100 min-h-screen font-sans">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        {/* --- Header --- */}
-        <header className="text-center mb-16">
-          <h1 className="text-5xl md:text-6xl font-extrabold text-gray-900 tracking-tighter">
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-500 to-purple-600">
-              The BottomWear Hub
-            </span>
-          </h1>
-          <p className="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
-            Explore our collection of bottom wear for men, women, and kids. Filter by brand or category to find your perfect outfit.
-          </p>
-        </header>
+    <div className="bg-gray-50 min-h-screen">
+      <div className="max-w-7xl mx-auto px-4 py-14">
 
-        {/* --- Filter Section --- */}
-        <div className="space-y-12">
+        {/* Header */}
+        <h1 className="text-4xl sm:text-5xl font-extrabold text-center mb-4">
+          <span className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-500 to-purple-600">
+            BottomWear Collection
+          </span>
+        </h1>
+        <p className="text-center text-gray-600 mb-12">
+          Trendy bottom wear for men & women
+        </p>
 
-          {/* BRAND FILTER */}
+        {/* Filters */}
+        <div className="space-y-10 mb-12">
           <div>
-            <h3 className="text-lg font-bold text-gray-800 mb-5">Brand</h3>
-            <div className="flex flex-wrap gap-8">
-              {brands.map((brand) => (
+            <h3 className="font-bold mb-3">Brand</h3>
+            <div className="flex flex-wrap gap-5">
+              {brands.map(b => (
                 <button
-                  key={brand}
-                  onClick={() => handleFilterChange("brand", brand)}
-                  className={`pb-1 text-base transition-all duration-300 font-medium
-                    ${filters.brand === brand
+                  key={b}
+                  onClick={() => setFilters({ ...filters, brand: b })}
+                  className={`pb-1 ${
+                    filters.brand === b
                       ? "text-indigo-600 border-b-2 border-indigo-600"
-                      : "text-gray-600 hover:text-gray-900 hover:border-gray-400"}`
-                  }
+                      : "text-gray-600"
+                  }`}
                 >
-                  {brand}
+                  {b}
                 </button>
               ))}
             </div>
           </div>
 
-          {/* CATEGORY FILTER */}
           <div>
-            <h3 className="text-lg font-bold text-gray-800 mb-5">Category</h3>
-            <div className="flex flex-wrap gap-10 mb-10 text-base font-medium text-gray-700">
-              {categories.map((cat) => (
+            <h3 className="font-bold mb-3">Category</h3>
+            <div className="flex flex-wrap gap-5">
+              {categories.map(c => (
                 <button
-                  key={cat}
-                  onClick={() => handleFilterChange("category", cat)}
-                  className={`pb-1 text-base transition-all duration-300 font-medium
-                    ${filters.category === cat
+                  key={c}
+                  onClick={() => setFilters({ ...filters, category: c })}
+                  className={`pb-1 ${
+                    filters.category === c
                       ? "text-indigo-600 border-b-2 border-indigo-600"
-                      : "text-gray-600 hover:text-gray-900 hover:border-gray-400"}`
-                  }
+                      : "text-gray-600"
+                  }`}
                 >
-                  {cat}
+                  {c}
                 </button>
               ))}
             </div>
           </div>
         </div>
 
-        {/* --- Grid Section --- */}
-        {filteredItems.length > 0 ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-            {filteredItems.map((item, index) => (
-              <div
-                key={item.id}
-                className="relative group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer"
-                onClick={() => index === 0 && navigate('/bottomwearDetail')}
-              >
-                <div className="overflow-hidden h-72 relative">
+        {/* Grid */}
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          {filteredItems.map(item => {
+            const added = isInCart(item.id);
+
+            return (
+              <div key={item.id} className="group bg-white rounded-xl shadow hover:shadow-xl transition overflow-hidden">
+                
+                {/* Image */}
+                <div className="relative h-56">
                   <img
                     src={item.image}
                     alt={item.name}
-                    className="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-110"
+                    className="w-full h-full object-cover"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+
+                  {/* Quick View */}
+                  <button
+                    onClick={() => setQuickView(item)}
+                    className="absolute inset-x-3 bottom-3 bg-white py-2 rounded-lg text-sm font-semibold opacity-0 group-hover:opacity-100 transition"
+                  >
+                    Quick View
+                  </button>
+
+                  <span className="absolute top-2 right-2 bg-white text-xs px-2 py-1 rounded-full text-indigo-600 font-semibold">
+                    {item.brand}
+                  </span>
                 </div>
-                <div className="p-5 text-center">
-                  <h3 className="text-lg font-semibold text-gray-800 truncate">{item.name}</h3>
-                  <p className="text-indigo-600 font-bold mt-2">{item.price}</p>
-                  <span className="inline-block mt-2 text-xs text-gray-500">{item.brand}</span>
+
+                {/* Content */}
+                <div className="p-4 text-center">
+                  <h3 className="text-sm font-semibold truncate">{item.name}</h3>
+                  <p className="text-indigo-600 font-bold mt-1">₹{item.price}</p>
+
+                  <button
+                    onClick={() =>
+                      added ? removeFromCart(item.id) : addToCart(item)
+                    }
+                    className={`mt-3 w-full py-2 rounded-lg text-sm font-semibold
+                      ${added ? "bg-green-500 text-white" : "bg-indigo-600 text-white hover:bg-indigo-700"}`}
+                  >
+                    {added ? "Added ✓" : "Add to Cart"}
+                  </button>
                 </div>
               </div>
-            ))}
-          </div>
-        ) : (
-          <div className="text-center py-20 px-6 bg-white rounded-2xl shadow-lg">
-            <h3 className="text-2xl font-bold text-gray-800">No Items Found</h3>
-            <p className="mt-2 text-gray-500">Please broaden your filter criteria to see more results.</p>
+            );
+          })}
+        </div>
+
+        {/* ---------- QUICK VIEW MODAL ---------- */}
+        {quickView && (
+          <div className="fixed inset-0 bg-black/60 z-50 flex items-center justify-center px-4">
+            <div className="bg-white rounded-3xl max-w-3xl w-full p-6 relative">
+              
+              <button
+                onClick={() => setQuickView(null)}
+                className="absolute top-4 right-4 text-xl"
+              >
+                <FaTimes />
+              </button>
+
+              <div className="grid md:grid-cols-2 gap-6">
+                <img
+                  src={quickView.image}
+                  alt={quickView.name}
+                  className="w-full h-80 object-cover rounded-2xl"
+                />
+
+                <div>
+                  <h2 className="text-2xl font-bold">{quickView.name}</h2>
+                  <p className="text-gray-500">{quickView.brand}</p>
+
+                  <p className="text-indigo-600 text-2xl font-bold mt-4">
+                    ₹{quickView.price}
+                  </p>
+
+                  <p className="mt-4 text-gray-700">
+                    {quickView.description}
+                  </p>
+
+                  <button
+                    onClick={() => addToCart(quickView)}
+                    disabled={isInCart(quickView.id)}
+                    className={`mt-8 w-full py-3 rounded-2xl font-semibold
+                      ${
+                        isInCart(quickView.id)
+                          ? "bg-green-500 text-white"
+                          : "bg-indigo-600 text-white hover:bg-indigo-700"
+                      }`}
+                  >
+                    {isInCart(quickView.id) ? (
+                      <>
+                        <FaCheck className="inline mr-1" /> Added
+                      </>
+                    ) : (
+                      "Add to Cart"
+                    )}
+                  </button>
+                </div>
+              </div>
+            </div>
           </div>
         )}
+
       </div>
     </div>
   );

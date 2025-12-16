@@ -1,146 +1,250 @@
-import React, { useState, useMemo } from 'react';
-import { useNavigate } from 'react-router-dom';
-
+import React, { useState, useMemo } from "react";
+import { FaHeart, FaTimes, FaCheck } from "react-icons/fa";
+import { useCart } from "../context/CartContext";
 
 // --- Top Wear Data ---
 const topWear = [
-  { id: 1, brand: 'UrbanFit', name: 'Men Casual Shirt', price: '₹1,199', image: '/image/mtop1.jpeg', category: 'Men' },
-  { id: 2, brand: 'StyleAura', name: 'Women Printed Top', price: '₹899', image: '/image/wtop1.jpeg', category: 'Women' },
-  { id: 3, brand: 'UrbanFit', name: 'Men Slim Fit Polo', price: '₹1,399', image: '/image/mtop2.jpeg', category: 'Men' },
-  { id: 4, brand: 'StyleAura', name: 'Women Sleeveless Top', price: '₹999', image: '/image/wtop2.jpeg', category: 'Women' },
-  { id: 5, brand: 'UrbanFit', name: 'Men Checked Shirt', price: '₹1,299', image: '/image/mtop3.jpeg', category: 'Men' },
-  { id: 6, brand: 'StyleAura', name: 'Women Casual Blouse', price: '₹1,099', image: '/image/wtop3.jpeg', category: 'Women' },
+  {
+    id: 1,
+    brand: "UrbanFit",
+    name: "Men Casual Shirt",
+    price: "₹1,199",
+    image: "/image/mtop1.jpeg",
+    category: "Men",
+    description: "Comfortable cotton casual shirt for everyday wear.",
+  },
+  {
+    id: 2,
+    brand: "StyleAura",
+    name: "Women Printed Top",
+    price: "₹899",
+    image: "/image/wtop1.jpeg",
+    category: "Women",
+    description: "Stylish printed top with soft fabric and modern fit.",
+  },
+  {
+    id: 3,
+    brand: "UrbanFit",
+    name: "Men Slim Fit Polo",
+    price: "₹1,399",
+    image: "/image/mtop2.jpeg",
+    category: "Men",
+    description: "Slim fit polo t-shirt with premium fabric.",
+  },
+  {
+    id: 4,
+    brand: "StyleAura",
+    name: "Women Sleeveless Top",
+    price: "₹999",
+    image: "/image/wtop2.jpeg",
+    category: "Women",
+    description: "Trendy sleeveless top perfect for summer outings.",
+  },
+  {
+    id: 5,
+    brand: "UrbanFit",
+    name: "Men Checked Shirt",
+    price: "₹1,299",
+    image: "/image/mtop3.jpeg",
+    category: "Men",
+    description: "Classic checked shirt with relaxed fit.",
+  },
+  {
+    id: 6,
+    brand: "StyleAura",
+    name: "Women Casual Blouse",
+    price: "₹1,099",
+    image: "/image/wtop3.jpeg",
+    category: "Women",
+    description: "Elegant casual blouse with premium stitching.",
+  },
 ];
 
-
 const TopWear = () => {
-  const navigate = useNavigate();
-  const [filters, setFilters] = useState({ brand: 'All', category: 'All' });
+  const { addToCart } = useCart();
 
-  const handleFilterChange = (filterType, value) => {
-    setFilters(prev => ({ ...prev, [filterType]: value }));
-  };
+  const [filters, setFilters] = useState({ brand: "All", category: "All" });
+  const [quickView, setQuickView] = useState(null);
+  const [addedItems, setAddedItems] = useState([]);
+
+  const brands = ["All", ...new Set(topWear.map((i) => i.brand))];
+  const categories = ["All", "Men", "Women"];
 
   const filteredItems = useMemo(() => {
-    return topWear.filter(item => {
-      const brandMatch = filters.brand === 'All' || item.brand === filters.brand;
-      const categoryMatch = filters.category === 'All' || item.category === filters.category;
-      return brandMatch && categoryMatch;
+    return topWear.filter((item) => {
+      const brandOk = filters.brand === "All" || item.brand === filters.brand;
+      const catOk =
+        filters.category === "All" || item.category === filters.category;
+      return brandOk && catOk;
     });
   }, [filters]);
 
-  const brands = ['All', ...new Set(topWear.map(item => item.brand))];
-  const categories = ['All', 'Men', 'Women'];
+  const handleAddToCart = (item) => {
+    if (!addedItems.includes(item.id)) {
+      addToCart(item);
+      setAddedItems((prev) => [...prev, item.id]);
+    }
+  };
 
-  // --- Reusable Filter Button ---
-  const FilterButton = ({ onClick, isActive, children }) => (
-    <button
-      onClick={onClick}
-      className={`px-5 py-2.5 text-sm font-semibold rounded-full transition-all duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 ${
-        isActive
-          ? 'bg-indigo-600 text-white shadow-lg transform scale-105'
-          : 'bg-white text-gray-800 hover:bg-gray-100 shadow-md'
-      }`}
-    >
-      {children}
-    </button>
-  );
+  const isAdded = (id) => addedItems.includes(id);
 
   return (
-    <div className="bg-gray-100 min-h-screen font-sans">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        {/* --- Header --- */}
-        <header className="text-center mb-16">
-          <h1 className="text-5xl md:text-6xl font-extrabold text-gray-900 tracking-tighter">
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-500 to-purple-600">
-              The TopWear Hub
-            </span>
-          </h1>
-          <p className="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
-            Explore our collection of top wear for men, women, and kids. Filter by brand or category to find your perfect outfit.
-          </p>
-        </header>
+    <div className="bg-gray-100 min-h-screen py-8 md:py-16">
+      <div className="max-w-7xl mx-auto px-4 md:px-6">
 
-         {/* --- Filter Section --- */}
-       <div className="space-y-12">
+        {/* HEADER */}
+        <h1 className="text-3xl md:text-5xl font-extrabold text-center mb-3 bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-purple-600">
+          Explore Top Wear
+        </h1>
+        <p className="text-center text-gray-600 mb-10 text-sm md:text-base">
+          Trendy styles for men & women
+        </p>
 
-              {/* BRAND FILTER */}
-              <div>
-                <h3 className="text-lg font-bold text-gray-800 mb-5">Brand</h3>
+        {/* FILTERS */}
+        <div className="flex flex-wrap justify-center gap-6 mb-10">
+          {brands.map((b) => (
+            <button
+              key={b}
+              onClick={() => setFilters({ ...filters, brand: b })}
+              className={`font-medium text-sm md:text-base ${
+                filters.brand === b
+                  ? "text-indigo-600 border-b-2 border-indigo-600"
+                  : "text-gray-600"
+              }`}
+            >
+              {b}
+            </button>
+          ))}
 
-                <div className="flex flex-wrap gap-8">
-                  {brands.map((brand) => (
-                    <button
-                      key={brand}
-                      onClick={() => handleFilterChange("brand", brand)}
-                      className={`pb-1 text-base transition-all duration-300 font-medium
-                        ${filters.brand === brand
-                          ? "text-indigo-600 border-b-2 border-indigo-600"
-                          : "text-gray-600 hover:text-gray-900 hover:border-gray-400"}`
-                      }
-                    >
-                      {brand}
-                    </button>
-                  ))}
-                </div>
+          {categories.map((c) => (
+            <button
+              key={c}
+              onClick={() => setFilters({ ...filters, category: c })}
+              className={`font-medium text-sm md:text-base ${
+                filters.category === c
+                  ? "text-purple-600 border-b-2 border-purple-600"
+                  : "text-gray-600"
+              }`}
+            >
+              {c}
+            </button>
+          ))}
+        </div>
+
+        {/* GRID */}
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-8">
+          {filteredItems.map((item) => (
+            <div
+              key={item.id}
+              className="relative bg-white rounded-2xl shadow hover:shadow-xl transition overflow-hidden"
+            >
+              {/* Wishlist */}
+              <button className="absolute top-3 right-3 bg-white p-2 rounded-full shadow z-10">
+                <FaHeart className="text-red-500 text-sm" />
+              </button>
+
+              {/* Image */}
+              <div className="h-44 md:h-72 overflow-hidden">
+                <img
+                  src={item.image}
+                  alt={item.name}
+                  className="w-full h-full object-cover"
+                />
               </div>
 
-              {/* CATEGORY FILTER */}
-              <div>
-                <h3 className="text-lg font-bold text-gray-800 mb-5">Category</h3>
+              {/* Info */}
+              <div className="p-3 md:p-4 text-center">
+                <h3 className="font-semibold text-sm md:text-base truncate">
+                  {item.name}
+                </h3>
+                <p className="text-indigo-600 font-bold text-lg">
+                  {item.price}
+                </p>
+                <p className="text-xs text-gray-500">{item.brand}</p>
 
-                <div className="flex flex-wrap gap-10 mb-10 text-base font-medium text-gray-700">
-                  {categories.map((cat) => (
-                    <button
-                      key={cat}
-                      onClick={() => handleFilterChange("category", cat)}
-                      className={`pb-1 text-base transition-all duration-300 font-medium
-                        ${filters.category === cat
-                          ? "text-indigo-600 border-b-2 border-indigo-600"
-                          : "text-gray-600 hover:text-gray-900 hover:border-gray-400"}`
-                      }
-                    >
-                      {cat}
-                    </button>
-                  ))}
+                {/* ACTIONS */}
+                <div className="flex gap-2 mt-3">
+                  <button
+                    onClick={() => setQuickView(item)}
+                    className="w-1/2 border py-1.5 rounded-lg text-sm"
+                  >
+                    View
+                  </button>
+
+                  <button
+                    onClick={() => handleAddToCart(item)}
+                    disabled={isAdded(item.id)}
+                    className={`w-1/2 py-1.5 rounded-lg text-sm font-semibold
+                      ${
+                        isAdded(item.id)
+                          ? "bg-green-500 text-white"
+                          : "bg-indigo-600 text-white"
+                      }`}
+                  >
+                    {isAdded(item.id) ? "Added" : "Cart"}
+                  </button>
                 </div>
               </div>
             </div>
-
-
-
-         {/* --- Grid Section --- */}
-        {filteredItems.length > 0 ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-            {filteredItems.map((item, index) => (
-              <div
-                key={item.id}
-                className="relative group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer"
-                onClick={() => index === 0 && navigate('/topwearDetail')}
-              >
-                <div className="overflow-hidden h-72 relative">
-                  <img
-                    src={item.image}
-                    alt={item.name}
-                    className="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                </div>
-                <div className="p-5 text-center">
-                  <h3 className="text-lg font-semibold text-gray-800 truncate">{item.name}</h3>
-                  <p className="text-indigo-600 font-bold mt-2">{item.price}</p>
-                  <span className="inline-block mt-2 text-xs text-gray-500">{item.brand}</span>
-                </div>
-              </div>
-            ))}
-          </div>
-        ) : (
-          <div className="text-center py-20 px-6 bg-white rounded-2xl shadow-lg">
-            <h3 className="text-2xl font-bold text-gray-800">No Items Found</h3>
-            <p className="mt-2 text-gray-500">Please broaden your filter criteria to see more results.</p>
-          </div>
-        )}
+          ))}
+        </div>
       </div>
+
+      {/* QUICK VIEW MODAL */}
+      {quickView && (
+        <div className="fixed inset-0 z-50 bg-black/60 flex items-center justify-center px-4">
+          <div className="bg-white rounded-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto p-4 md:p-6 relative">
+            <button
+              onClick={() => setQuickView(null)}
+              className="absolute top-3 right-3 text-xl"
+            >
+              <FaTimes />
+            </button>
+
+            <div className="grid md:grid-cols-2 gap-6">
+              <img
+                src={quickView.image}
+                alt={quickView.name}
+                className="w-full h-64 md:h-96 object-cover rounded-xl"
+              />
+
+              <div>
+                <h2 className="text-2xl md:text-3xl font-bold">
+                  {quickView.name}
+                </h2>
+                <p className="text-gray-500">{quickView.brand}</p>
+
+                <p className="text-indigo-600 text-xl font-bold mt-3">
+                  {quickView.price}
+                </p>
+
+                <p className="mt-4 text-gray-700 text-sm md:text-base">
+                  {quickView.description}
+                </p>
+
+                <button
+                  onClick={() => handleAddToCart(quickView)}
+                  disabled={isAdded(quickView.id)}
+                  className={`mt-6 w-full py-3 rounded-xl font-semibold flex items-center justify-center gap-2
+                    ${
+                      isAdded(quickView.id)
+                        ? "bg-green-500 text-white"
+                        : "bg-indigo-600 text-white"
+                    }`}
+                >
+                  {isAdded(quickView.id) ? (
+                    <>
+                      <FaCheck /> Added to Cart
+                    </>
+                  ) : (
+                    "Add to Cart"
+                  )}
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

@@ -90,9 +90,10 @@ const Footer = () => {
             <h3 className="text-xl font-bold">Information</h3>
             <ul className="space-y-2">
               <li><Link to="/aboutus" className="hover:underline">About Us</Link></li>
-              <li><Link to="/security" className="hover:underline">Security</Link></li>
-              <li><Link to="/cancellation" className="hover:underline">Cancellation & Refund</Link></li>
               <li><Link to="/blog" className="hover:underline">Blog</Link></li>
+              <li><Link to="/security" className="hover:underline">Security</Link></li>
+              <li><Link to="/contact" className="hover:underline">Contact</Link></li>
+           
             </ul>
           </div>
 
@@ -100,10 +101,11 @@ const Footer = () => {
           <div className="space-y-4">
             <h3 className="text-xl font-bold">Quick Links</h3>
             <ul className="space-y-2">
-              <li><Link to="/privacy" className="hover:underline">Privacy Policy</Link></li>
-              <li><Link to="/terms" className="hover:underline">Terms of Use</Link></li>
-              <li><Link to="/contact" className="hover:underline">Contact</Link></li>
               <li><Link to="/faq" className="hover:underline">FAQ</Link></li>
+              <li><Link to="/terms" className="hover:underline">Terms of Use</Link></li>
+              <li><Link to="/privacy" className="hover:underline">Privacy Policy</Link></li>
+              <li><Link to="/cancellation" className="hover:underline">Refund & Cancellation</Link></li>
+            
             </ul>
           </div>
 
@@ -125,7 +127,7 @@ const Footer = () => {
         {/* Footer Bottom */}
         <div className="border-t border-gray-400 text-center pt-6 mt-8">
           <p className="bg-clip-text text-transparent bg-white text-md tracking-wide">
-            © 2025 First Track Solution Technologies. All Rights Reserved.
+            Copyright© 2025 First Track Solution Technologies. All Rights Reserved.
           </p>
         </div>
 

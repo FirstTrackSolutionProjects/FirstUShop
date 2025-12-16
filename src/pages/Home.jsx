@@ -3,7 +3,7 @@ import React from 'react'
 import HeroShowcase from '../components/HeroShowcase'
 import Trending from '../components/Trending'
 import BestSelling from '../components/BestSelling'
-import NewArrival from '../components/NewArrival'
+// import NewArrival from '../components/NewArrival'
 import Testimonials from '../components/Testimonials'
 import WhyChooseUs from '../components/WhyChooseUs'
 import TrendCollection from '../components/TrendCollection'
@@ -17,7 +17,7 @@ const Home = () => {
                 <Trending />
                 <TrendCollection/>
                 <BestSelling/>
-                <NewArrival/>
+                {/* <NewArrival/> */}
                 <Testimonials/>
                 <WhyChooseUs/>
               </>
