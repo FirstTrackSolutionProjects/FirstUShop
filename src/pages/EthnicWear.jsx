@@ -1,176 +1,232 @@
 import React, { useState, useMemo } from "react";
-import { FaFilter, FaTag, FaUserAlt } from "react-icons/fa";
+import { FaHeart, FaTimes, FaCheck } from "react-icons/fa";
+import { useCart } from "../context/CartContext";
 
-// Kurta Data
+// ---------------- DATA ----------------
 const kurtas = [
-
-
-  // --- MEN ---
-  { id: 1, brand: "FabIndia", name: "Silk Blend Kurta", price: "₹2,499", image: "/image/m1.jpg", category: "Men Kurta" },
-  { id: 2, brand: "Manyavar", name: "Classic Solid Kurta", price: "₹1,999", image: "/image/m2.jpeg", category: "Men Kurta" },
-  { id: 3, brand: "Wrogn", name: "Textured Festive Kurta", price: "₹1,899", image: "/image/m3.jpeg", category: "Men Kurta" },
-  { id: 4, brand: "FabIndia", name: "Cotton Pathani Suit", price: "₹2,299", image: "/image/m4.jpeg", category: "Men Ethnic Suit" },
-  { id: 5, brand: "Manyavar", name: "Designer Sherwani", price: "₹5,999", image: "/image/m5.jpeg", category: "Men Sherwani" },
-
-  // --- WOMEN ---
-  { id: 6, brand: "Anokhi", name: "Printed Cotton Kurta", price: "₹1,799", image: "/image/w1.jpeg", category: "Women Kurta" },
-  { id: 7, brand: "Biba", name: "Floral A-Line Kurta", price: "₹1,599", image: "/image/w2.jpeg", category: "Women Kurta" },
-  { id: 8, brand: "Aurelia", name: "Straight Embroidered Kurta", price: "₹1,299", image: "/image/w3.jpeg", category: "Women Kurta" },
-  { id: 9, brand: "Libas", name: "Geometric Print Kurta", price: "₹1,399", image: "/image/w4.jpeg", category: "Women Kurta" },
-  { id: 10, brand: "SareeHub", name: "Banarasi Silk Saree", price: "₹3,499", image: "/image/w5.jpeg", category: "Women Saree" },
-  { id: 11, brand: "FabIndia", name: "Embroidered Lehenga", price: "₹4,299", image: "/image/w6.jpeg", category: "Women Lehenga" },
-  { id: 12, brand: "Biba", name: "Cotton Ethnic Top", price: "₹899", image: "/image/w7.jpeg", category: "Women Ethnic Top" }
+  {
+    id: 1,
+    brand: "FabIndia",
+    name: "Silk Blend Kurta",
+    price: "₹2,499",
+    image: "/image/m1.jpg",
+    category: "Men Kurta",
+    description:
+      "Premium silk blend kurta with intricate embroidery. Perfect for weddings and festivals.",
+  },
+  {
+    id: 2,
+    brand: "Manyavar",
+    name: "Classic Solid Kurta",
+    price: "₹1,999",
+    image: "/image/m2.jpeg",
+    category: "Men Kurta",
+    description:
+      "Elegant solid kurta crafted in breathable fabric. Comfortable for all-day wear.",
+  },
+  {
+    id: 3,
+    brand: "Wrogn",
+    name: "Textured Festive Kurta",
+    price: "₹1,899",
+    image: "/image/m3.jpeg",
+    category: "Men Kurta",
+    description:
+      "Stylish festive kurta with modern texture and relaxed fit.",
+  },
+  {
+    id: 6,
+    brand: "Biba",
+    name: "Floral A-Line Kurta",
+    price: "₹1,599",
+    image: "/image/w2.jpeg",
+    category: "Women Kurta",
+    description:
+      "Beautiful floral A-line kurta with soft cotton fabric for everyday elegance.",
+  },
 ];
 
-
-
-
+// ---------------- COMPONENT ----------------
 const EthnicWear = () => {
+  const { addToCart } = useCart();
   const [filters, setFilters] = useState({ brand: "All", category: "All" });
+  const [quickView, setQuickView] = useState(null);
+  const [addedItems, setAddedItems] = useState([]);
 
-  const handleFilterChange = (filterType, value) => {
-    setFilters((prev) => ({ ...prev, [filterType]: value }));
-  };
-
-  const filteredKurtas = useMemo(() => {
-  return kurtas.filter((kurta) => {
-    const brandMatch = filters.brand === "All" || kurta.brand === filters.brand;
-    const categoryMatch =
-      filters.category === "All" || kurta.category.includes(filters.category);
-    return brandMatch && categoryMatch;
-  });
-}, [filters]);
-
-
-  const brands = ["All", ...new Set(kurtas.map((kurta) => kurta.brand))];
+  const brands = ["All", ...new Set(kurtas.map((k) => k.brand))];
   const categories = ["All", "Men", "Women"];
 
-  const FilterButton = ({ onClick, isActive, children }) => (
-    <button
-      onClick={onClick}
-      className={`px-5 py-2.5 rounded-full text-sm shadow-md transition-all duration-300
-        ${isActive
-          ? "bg-indigo-600 text-white scale-105 shadow-xl"
-          : "bg-white hover:bg-gray-100 text-gray-800"}`
-      }
-    >
-      {children}
-    </button>
-  );
+  const filteredKurtas = useMemo(() => {
+    return kurtas.filter((k) => {
+      const brandOk = filters.brand === "All" || k.brand === filters.brand;
+      const catOk =
+        filters.category === "All" || k.category.includes(filters.category);
+      return brandOk && catOk;
+    });
+  }, [filters]);
+
+  const handleAddToCart = (item) => {
+    if (!addedItems.includes(item.id)) {
+      addToCart(item);
+      setAddedItems((prev) => [...prev, item.id]);
+    }
+  };
+
+  const isAdded = (id) => addedItems.includes(id);
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-100 to-gray-200 py-16 font-sans">
-      <div className="container mx-auto px-5">
+    <div className="min-h-screen bg-gray-100 py-8 md:py-16">
+      <div className="max-w-7xl mx-auto px-4 md:px-6">
 
-        {/* ---------------- HEADER ---------------- */}
-        <header className="text-center mb-16">
-          <h1 className="text-5xl md:text-6xl font-extrabold tracking-tight">
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-pink-600">
-              Explore Ethnic Wear
-            </span>
-          </h1>
-          <p className="mt-4 text-gray-600 text-lg max-w-xl mx-auto">
-            Shop the finest collection of traditional & modern ethnic wear. Filter, explore, and buy your favourites.
-          </p>
-        </header>
+        {/* HEADER */}
+        <h1 className="text-3xl md:text-5xl font-extrabold text-center mb-3 bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-pink-600">
+          Explore Ethnic Wear
+        </h1>
+        <p className="text-center text-gray-600 mb-8 md:mb-14 text-sm md:text-base">
+          Timeless styles crafted for every celebration
+        </p>
 
-       
-        {/* ---------------- FILTERS ---------------- */}
-            <div className="space-y-12">
+        {/* FILTERS */}
+        <div className="flex flex-wrap justify-center gap-4 md:gap-8 mb-10">
+          {brands.map((b) => (
+            <button
+              key={b}
+              onClick={() => setFilters({ ...filters, brand: b })}
+              className={`text-sm md:text-base font-medium ${
+                filters.brand === b
+                  ? "text-indigo-600 border-b-2 border-indigo-600"
+                  : "text-gray-600"
+              }`}
+            >
+              {b}
+            </button>
+          ))}
 
-              {/* BRAND FILTER */}
-              <div>
-                <h3 className="text-lg font-bold text-gray-800 mb-5">Brand</h3>
+          {categories.map((c) => (
+            <button
+              key={c}
+              onClick={() => setFilters({ ...filters, category: c })}
+              className={`text-sm md:text-base font-medium ${
+                filters.category === c
+                  ? "text-pink-600 border-b-2 border-pink-600"
+                  : "text-gray-600"
+              }`}
+            >
+              {c}
+            </button>
+          ))}
+        </div>
 
-                <div className="flex flex-wrap gap-8">
-                  {brands.map((brand) => (
-                    <button
-                      key={brand}
-                      onClick={() => handleFilterChange("brand", brand)}
-                      className={`pb-1 text-base transition-all duration-300 font-medium
-                        ${filters.brand === brand
-                          ? "text-indigo-600 border-b-2 border-indigo-600"
-                          : "text-gray-600 hover:text-gray-900 hover:border-gray-400"}`
-                      }
-                    >
-                      {brand}
-                    </button>
-                  ))}
-                </div>
+        {/* PRODUCTS GRID */}
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-8">
+          {filteredKurtas.map((item) => (
+            <div
+              key={item.id}
+              className="relative bg-white rounded-2xl overflow-hidden shadow hover:shadow-xl transition"
+            >
+              {/* Wishlist */}
+              <button className="absolute top-3 right-3 bg-white p-2 rounded-full shadow z-10">
+                <FaHeart className="text-red-500 text-sm" />
+              </button>
+
+              {/* Image */}
+              <div className="h-44 md:h-80 overflow-hidden">
+                <img
+                  src={item.image}
+                  alt={item.name}
+                  className="w-full h-full object-cover"
+                />
               </div>
 
-              {/* CATEGORY FILTER */}
-              <div>
-                <h3 className="text-lg font-bold text-gray-800 mb-5">Category</h3>
+              {/* Info */}
+              <div className="p-3 md:p-4 text-center">
+                <h3 className="font-semibold text-sm md:text-base truncate">
+                  {item.name}
+                </h3>
+                <p className="text-indigo-600 font-bold text-lg md:text-xl">
+                  {item.price}
+                </p>
+                <p className="text-xs md:text-sm text-gray-500">
+                  {item.brand}
+                </p>
 
-                <div className="flex flex-wrap gap-10 mb-10 text-base font-medium text-gray-700">
-                  {categories.map((cat) => (
-                    <button
-                      key={cat}
-                      onClick={() => handleFilterChange("category", cat)}
-                      className={`pb-1 text-base transition-all duration-300 font-medium
-                        ${filters.category === cat
-                          ? "text-indigo-600 border-b-2 border-indigo-600"
-                          : "text-gray-600 hover:text-gray-900 hover:border-gray-400"}`
-                      }
-                    >
-                      {cat}
-                    </button>
-                  ))}
+                {/* ACTION BUTTONS (Mobile Always Visible) */}
+                <div className="flex gap-2 mt-3">
+                  <button
+                    onClick={() => setQuickView(item)}
+                    className="w-1/2 border py-1.5 rounded-lg text-sm"
+                  >
+                    View
+                  </button>
+
+                  <button
+                    onClick={() => handleAddToCart(item)}
+                    disabled={isAdded(item.id)}
+                    className={`w-1/2 py-1.5 rounded-lg text-sm font-semibold
+                      ${
+                        isAdded(item.id)
+                          ? "bg-green-500 text-white"
+                          : "bg-indigo-600 text-white"
+                      }`}
+                  >
+                    {isAdded(item.id) ? "Added" : "Cart"}
+                  </button>
                 </div>
               </div>
             </div>
-
-
-        {/* ---------------- PRODUCT GRID ---------------- */}
-              {filteredKurtas.length > 0 ? (
-          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-
-            {filteredKurtas.map((item) => (
-              <div
-                key={item.id}
-                className="relative group bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300"
-              >
-                {/* Wishlist Heart */}
-                <button className="absolute top-3 right-3 z-20 bg-white/90 rounded-full p-2 shadow-md hover:scale-110 transition text-red-500 font-bold text-lg">
-                  ♥
-                </button>
-
-
-                {/* Product Image */}
-                <div className="h-85 w-full overflow-hidden">
-                  <img
-                    src={item.image}
-                    alt={item.name}
-                    className="w-full h-full object-cover transform group-hover:scale-110 transition duration-500"
-                  />
-                </div>
-
-                {/* Hover Bottom Action Bar */}
-                <div className="absolute bottom-0 inset-x-0 px-4 py-3 bg-black/50 backdrop-blur-md opacity-0 group-hover:opacity-100 transition-all duration-300">
-                  <button className="w-full bg-white text-gray-900 font-semibold py-2 rounded-xl hover:bg-gray-100 transition">
-                    Quick View
-                  </button>
-                </div>
-
-                {/* Product Info */}
-                <div className="p-4 text-center">
-                  <h3 className="text-base font-bold text-gray-800 truncate">{item.name}</h3>
-                  <p className="text-indigo-600 text-xl font-bold mt-1">{item.price}</p>
-                  <p className="text-sm text-gray-500 mt-1">{item.brand}</p>
-                </div>
-              </div>
-            ))}
-
-          </div>
-        ) : (
-          <div className="text-center py-20 px-6 bg-white rounded-2xl shadow-lg">
-            <h2 className="text-3xl font-bold text-gray-800">No Items Found</h2>
-            <p className="mt-3 text-gray-500">Try selecting a different brand or category.</p>
-          </div>
-        )}
-
+          ))}
+        </div>
       </div>
+
+      {/* QUICK VIEW MODAL */}
+      {quickView && (
+        <div className="fixed inset-0 z-50 bg-black/60 flex items-center justify-center px-4">
+          <div className="bg-white rounded-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto p-4 md:p-6 relative">
+            <button
+              onClick={() => setQuickView(null)}
+              className="absolute top-3 right-3 text-xl"
+            >
+              <FaTimes />
+            </button>
+
+            <div className="grid md:grid-cols-2 gap-6">
+              <img
+                src={quickView.image}
+                alt={quickView.name}
+                className="w-full h-64 md:h-96 object-cover rounded-xl"
+              />
+
+              <div>
+                <h2 className="text-2xl md:text-3xl font-bold">
+                  {quickView.name}
+                </h2>
+                <p className="text-gray-500">{quickView.brand}</p>
+
+                <p className="text-indigo-600 text-xl md:text-2xl font-bold mt-3">
+                  {quickView.price}
+                </p>
+
+                <p className="mt-4 text-gray-700 text-sm md:text-base">
+                  {quickView.description}
+                </p>
+
+                <button
+                  onClick={() => handleAddToCart(quickView)}
+                  disabled={isAdded(quickView.id)}
+                  className={`mt-6 w-full py-3 rounded-xl font-semibold
+                    ${
+                      isAdded(quickView.id)
+                        ? "bg-green-500 text-white"
+                        : "bg-indigo-600 text-white"
+                    }`}
+                >
+                  {isAdded(quickView.id) ? "Added to Cart" : "Add to Cart"}
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

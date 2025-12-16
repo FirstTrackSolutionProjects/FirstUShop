@@ -10,7 +10,6 @@ import {
   MessageSquare,
   DollarSign,
   Leaf,
-  ShoppingBag,
 } from 'lucide-react';
 
 // Animations
@@ -51,74 +50,27 @@ export default function AboutUs() {
     <div className="bg-gray-50 text-gray-800">
 
       {/* HERO */}
-      <section className="relative bg-gradient-to-br from-pink-600 to-indigo-700 text-white py-28 overflow-hidden">
-        <div className="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
+        <div className="min-h-[60vh] flex items-center justify-center text-center px-6
+          bg-gradient-to-br from-indigo-900 via-purple-900 to-violet-800">
 
-        <motion.div
-          className="max-w-5xl mx-auto px-6 text-center relative z-10"
-          initial="hidden"
-          animate="visible"
-          variants={fadeUp}
-        >
-          <h1 className="text-4xl md:text-6xl font-extrabold mb-6">
-            Welcome to <span className="text-yellow-300">FirstUShop</span>
+        <div>
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-white mb-6">
+            Welcome to{" "}
+            <span className="text-black">First {""} </span>
+            <span className="text-red-500">U</span>
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-pink-300 to-purple-300">
+              Shop
+            </span>
           </h1>
-          <p className="text-lg md:text-xl opacity-90 max-w-3xl mx-auto leading-relaxed">
-            India's modern online shopping destination for fashion, lifestyle, and everyday essentials —
-            trusted by millions across the country.
+
+          <p className="max-w-3xl mx-auto text-white/90 text-base sm:text-lg md:text-xl">
+            India's modern online shopping destination for fashion, lifestyle,
+            and everyday essentials — trusted by millions across the country.
           </p>
-        </motion.div>
-      </section>
-
-      {/* MISSION */}
-      <section className="py-20 bg-white">
-        <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 flex items-center gap-3">
-              <Target size={32} className="text-indigo-600" /> Our Mission
-            </h2>
-            <p className="text-gray-600 text-lg mt-4 leading-relaxed">
-              To offer a seamless, affordable, and enjoyable online shopping experience.
-              We aim to bring top-quality products to every Indian doorstep, making lifestyle more stylish and convenient.
-            </p>
-          </motion.div>
-
-          <motion.img
-            src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=2000"
-            alt="Mission"
-            className="rounded-xl shadow-xl"
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          />
         </div>
-      </section>
+      </div>
 
-      {/* VISION */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
-          <motion.img
-            src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=2000"
-            alt="Vision"
-            className="rounded-xl shadow-xl"
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          />
 
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 flex items-center gap-3">
-              <Eye size={32} className="text-pink-600" /> Our Vision
-            </h2>
-            <p className="text-gray-600 text-lg mt-4 leading-relaxed">
-              To redefine online shopping with smart personalization, faster logistics,
-              and an unmatched customer experience — making FirstUShop a household name.
-            </p>
-          </motion.div>
-        </div>
-      </section>
 
       {/* CORE VALUES */}
       <section className="py-20 bg-white">

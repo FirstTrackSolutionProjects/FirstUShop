@@ -5,7 +5,7 @@ export const products = [
   name: "Floral Kurti",
   price: 499,
   oldPrice: 799,
-  image: "https://images.unsplash.com/photo-1520975918318-3ff5c2f1f6b3?auto=format&fit=crop&w=500&q=80",
+  image: "/image/wf-1.jpg",
   category: "Women Fashion",
 },
 {
@@ -13,7 +13,7 @@ export const products = [
   name: "Printed Summer Dress",
   price: 699,
   oldPrice: 999,
-  image: "https://images.unsplash.com/photo-1496749843252-699a9898773e?auto=format&fit=crop&w=500&q=80",
+  image: "/image/wf-2.jpg",
   category: "women-fashion",
 },
 {
@@ -21,7 +21,7 @@ export const products = [
   name: "Stylish Western Top",
   price: 399,
   oldPrice: 650,
-  image: "https://images.unsplash.com/photo-1583496661160-3ccb55c67f5c?auto=format&fit=crop&w=500&q=80",
+  image: "/image/wf-3.jpg",
   category: "women-fashion",
 },
 {
@@ -29,7 +29,7 @@ export const products = [
   name: "Anarkali Kurta",
   price: 899,
   oldPrice: 1200,
-  image: "https://images.unsplash.com/photo-1602810317721-524f3f5a401d?auto=format&fit=crop&w=500&q=80",
+  image: "/image/wf-4.jpg",
   category: "women-fashion",
 },
 {
@@ -37,7 +37,7 @@ export const products = [
   name: "Party Wear Gown",
   price: 1299,
   oldPrice: 1699,
-  image: "https://images.unsplash.com/photo-1542060748-10c28b62716f?auto=format&fit=crop&w=500&q=80",
+  image: "/image/wf-5.jpg",
   category: "women-fashion",
 },
 {
@@ -45,9 +45,18 @@ export const products = [
   name: "Casual Denim Jacket",
   price: 899,
   oldPrice: 1400,
-  image: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=500&q=80",
+  image: "/image/wf-6.jpg",
   category: "women-fashion",
 },
+{ 
+  id: 7,
+  name: "Ethnic Lehenga",
+  price: 1999,
+  oldPrice: 2499,
+  image: "/image/wf-7.jpg",
+  category: "women-fashion",
+},
+
 
 // -------- MEN FASHION ----------
 {
@@ -55,7 +64,7 @@ export const products = [
   name: "Casual Cotton Shirt",
   price: 599,
   oldPrice: 899,
-  image: "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=500&q=80",
+  image: "/image/mf-1.jpg",
   category: "men-fashion",
 },
 {
@@ -63,7 +72,7 @@ export const products = [
   name: "Slim Fit Jeans",
   price: 899,
   oldPrice: 1299,
-  image: "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=500&q=80",
+  image: "/image/mf-2.jpg",
   category: "men-fashion",
 },
 {
@@ -71,7 +80,7 @@ export const products = [
   name: "Classic Polo T-Shirt",
   price: 499,
   oldPrice: 799,
-  image: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=500&q=80",
+  image: "/image/mf-3.jpg",
   category: "men-fashion",
 },
 {
@@ -79,7 +88,7 @@ export const products = [
   name: "Men's Leather Jacket",
   price: 1999,
   oldPrice: 2499,
-  image: "https://images.unsplash.com/photo-1591047139829-d91bbe2b2d1e?auto=format&fit=crop&w=500&q=80",
+  image: "/image/mf-4.jpg",
   category: "men-fashion",
 },
 {
@@ -87,7 +96,7 @@ export const products = [
   name: "Formal Blazer",
   price: 1599,
   oldPrice: 2199,
-  image: "https://images.unsplash.com/photo-1583743814966-8936f5b7f9a5?auto=format&fit=crop&w=500&q=80",
+  image: "/image/mf-5.jpg",
   category: "men-fashion",
 },
 {
@@ -95,7 +104,7 @@ export const products = [
     name: "Chino Pants",
     price: 799,
     oldPrice: 1199,
-    image: "https://images.unsplash.com/photo-1556905055-8f358a7a47b4?auto=format&fit=crop&w=500&q=80",
+    image: "/image/mf-6.jpg",
     category: "men-fashion",
 },
 // -------- HOME & KITCHEN ----------
@@ -104,7 +113,7 @@ export const products = [
   name: "Stainless Steel Dinner Set",
   price: 1199,
   oldPrice: 1599,
-  image: "https://images.unsplash.com/photo-1601050690597-df7b9c1eeb1f?auto=format&fit=crop&w=500&q=80",
+  image: "/image/hk-1.jpg",
   category: "home-kitchen",
 },
 {
@@ -112,7 +121,7 @@ export const products = [
   name: "Non-Stick Frying Pan",
   price: 699,
   oldPrice: 999,
-  image: "https://images.unsplash.com/photo-1588167056546-85a162a5d677?auto=format&fit=crop&w=500&q=80",
+  image: "/image/hk-2.jpg",
   category: "home-kitchen",
 },
 {
@@ -120,7 +129,7 @@ export const products = [
   name: "Modern Table Lamp",
   price: 899,
   oldPrice: 1299,
-  image: "https://images.unsplash.com/photo-1493666438817-866a91353ca9?auto=format&fit=crop&w=500&q=80",
+  image: "/image/hk-3.jpg",
   category: "home-kitchen",
 },
 {
@@ -128,7 +137,7 @@ export const products = [
   name: "Kitchen Storage Jars (Set of 6)",
   price: 499,
   oldPrice: 699,
-  image: "https://images.unsplash.com/photo-1601048373720-6b4f242c4f83?auto=format&fit=crop&w=500&q=80",
+  image: "/image/hk-4.jpg",
   category: "home-kitchen",
 },
 {
@@ -136,15 +145,15 @@ export const products = [
   name: "Cotton Bedsheet (Double)",
   price: 799,
   oldPrice: 1199,
-  image: "https://images.unsplash.com/photo-1601968177507-a5e8f1f57c0e?auto=format&fit=crop&w=500&q=80",
+  image: "/image/hk-5.jpg",
   category: "home-kitchen",
 },
 {
   id: 206,
-  name: "Electric Kettle 1.5L",
-  price: 649,
-  oldPrice: 999,
-  image: "https://images.unsplash.com/photo-1594737626072-90a1a5a76bac?auto=format&fit=crop&w=500&q=80",
+  name: "Ceramic Vase",
+  price: 399,
+  oldPrice: 599,
+  image: "/image/hk-6.jpg",
   category: "home-kitchen",
 },
 // -------- BABY CARE ----------
@@ -153,7 +162,7 @@ export const products = [
   name: "Baby Skin Lotion 200ml",
   price: 249,
   oldPrice: 349,
-  image: "https://images.unsplash.com/photo-1584940112623-1f5fbb2bdc20?auto=format&fit=crop&w=500&q=80",
+  image: "/image/baby-care-1.jpg",
   category: "baby-care",
 },
 {
@@ -161,7 +170,7 @@ export const products = [
   name: "Cotton Baby Blanket",
   price: 499,
   oldPrice: 799,
-  image: "https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=500&q=80",
+  image: "/image/baby-care-2.jpg",
   category: "baby-care",
 },
 {
@@ -169,7 +178,7 @@ export const products = [
   name: "Baby Feeding Bottle 250ml",
   price: 199,
   oldPrice: 299,
-  image: "https://images.unsplash.com/photo-1608219959303-9a7cdbaff342?auto=format&fit=crop&w=500&q=80",
+  image: "/image/baby-care-3.jpg",
   category: "baby-care",
 },
 {
@@ -177,7 +186,7 @@ export const products = [
   name: "Baby Diapers (Pack of 30)",
   price: 349,
   oldPrice: 449,
-  image: "https://images.unsplash.com/photo-1581579185169-af88df9d6f65?auto=format&fit=crop&w=500&q=80",
+  image: "/image/baby-care-4.jpg",
   category: "baby-care",
 },
 {
@@ -185,7 +194,7 @@ export const products = [
   name: "Baby Towel (Soft Cotton)",
   price: 299,
   oldPrice: 499,
-  image: "https://images.unsplash.com/photo-1617038260897-e153fb4f78b8?auto=format&fit=crop&w=500&q=80",
+  image: "/image/baby-care-5.jpg",
   category: "baby-care",
 },
 {
@@ -193,7 +202,7 @@ export const products = [
   name: "Baby Shampoo 100ml",
   price: 149,
   oldPrice: 249,
-  image: "https://images.unsplash.com/photo-1584940112623-1f5fbb2bdc20?auto=format&fit=crop&w=500&q=80",
+  image: "/image/baby-care-6.jpg",
   category: "baby-care",
 },
 // -------- grocery ----------
@@ -202,7 +211,7 @@ export const products = [
   name: "Organic Brown Rice 1kg",
   price: 199,
   oldPrice: 249,
-  image: "https://images.unsplash.com/photo-1604908177527-2d2d99c8b0b3?auto=format&fit=crop&w=500&q=80",
+  image: "/image/grocery-1.jpg",
   category: "grocery",
 },
 {
@@ -210,7 +219,7 @@ export const products = [
   name: "Olive Oil 500ml",
   price: 399,
   oldPrice: 499,
-  image: "https://images.unsplash.com/photo-1589308078050-3ef12b3e7f13?auto=format&fit=crop&w=500&q=80",
+  image: "/image/grocery-2.jpg",
   category: "grocery",
 },
 {
@@ -218,7 +227,7 @@ export const products = [
   name: "Organic Honey 250g",
   price: 299,
   oldPrice: 399,
-  image: "https://images.unsplash.com/photo-1617196031410-47f0a0d7fbd4?auto=format&fit=crop&w=500&q=80",
+  image: "/image/grocery-3.jpg",
   category: "grocery",
 },
 {
@@ -226,7 +235,7 @@ export const products = [
   name: "Almonds 500g",
   price: 599,
   oldPrice: 749,
-  image: "https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=500&q=80",
+  image: "/image/grocery-4.jpg",
   category: "grocery",
 },
 
@@ -236,7 +245,7 @@ export const products = [
   name: "Running Shoes (Men)",
   price: 1999,
   oldPrice: 2499,
-  image: "https://images.unsplash.com/photo-1595950656667-fd14c45fa0f7?auto=format&fit=crop&w=500&q=80",
+  image: "/image/footwear-1.jpg",
   category: "footwear",
 },
 {
@@ -244,7 +253,7 @@ export const products = [
   name: "Casual Sneakers (Women)",
   price: 1799,
   oldPrice: 2299,
-  image: "https://images.unsplash.com/photo-1585386959984-a4155229f157?auto=format&fit=crop&w=500&q=80",
+  image: "/image/footwear-2.jpg",
   category: "footwear",
 },
 {
@@ -252,7 +261,7 @@ export const products = [
   name: "Flip Flops",
   price: 499,
   oldPrice: 699,
-  image: "https://images.unsplash.com/photo-1593032465170-90b7a0f34676?auto=format&fit=crop&w=500&q=80",
+  image: "/image/footwear-3.jpg",
   category: "footwear",
 },
 {
@@ -260,7 +269,7 @@ export const products = [
   name: "Formal Leather Shoes",
   price: 2499,
   oldPrice: 2999,
-  image: "https://images.unsplash.com/photo-1618354697118-d7c5d029c1f7?auto=format&fit=crop&w=500&q=80",
+  image: "/image/footwear-4.jpg",
   category: "footwear",
 },
 
@@ -270,7 +279,7 @@ export const products = [
   name: "Yoga Mat",
   price: 799,
   oldPrice: 999,
-  image: "https://images.unsplash.com/photo-1605902711622-cfb43c4439b5?auto=format&fit=crop&w=500&q=80",
+  image: "/image/fitness-1.jpg",
   category: "sports-fitness",
 },
 {
@@ -278,7 +287,7 @@ export const products = [
   name: "Dumbbell Set 5kg",
   price: 1499,
   oldPrice: 1799,
-  image: "https://images.unsplash.com/photo-1599058917212-d898e2233c54?auto=format&fit=crop&w=500&q=80",
+  image: "/image/fitness-2.jpg",
   category: "sports-fitness",
 },
 {
@@ -286,7 +295,7 @@ export const products = [
   name: "Treadmill",
   price: 24999,
   oldPrice: 27999,
-  image: "https://images.unsplash.com/photo-1612831455547-36f0f65c6c8e?auto=format&fit=crop&w=500&q=80",
+  image: "/image/fitness-3.jpg",
   category: "sports-fitness",
 },
 {
@@ -294,7 +303,7 @@ export const products = [
   name: "Resistance Bands Set",
   price: 499,
   oldPrice: 699,
-  image: "https://images.unsplash.com/photo-1606788075760-586c8876b92b?auto=format&fit=crop&w=500&q=80",
+  image: "/image/fitness-4.jpg",
   category: "sports-fitness",
 },
 
@@ -304,7 +313,7 @@ export const products = [
   name: "Sunglasses",
   price: 899,
   oldPrice: 1199,
-  image: "https://images.unsplash.com/photo-1542068829-1115f7259450?auto=format&fit=crop&w=500&q=80",
+  image: "/image/accessories-1.jpg",
   category: "accessories",
 },
 {
@@ -312,7 +321,7 @@ export const products = [
   name: "Leather Wallet",
   price: 699,
   oldPrice: 999,
-  image: "https://images.unsplash.com/photo-1593032465170-90b7a0f34676?auto=format&fit=crop&w=500&q=80",
+  image: "/image/accessories-2.jpg",
   category: "accessories",
 },
 {
@@ -320,7 +329,7 @@ export const products = [
   name: "Wrist Watch",
   price: 1999,
   oldPrice: 2499,
-  image: "https://images.unsplash.com/photo-1600185364627-1a9f0c0cf3c0?auto=format&fit=crop&w=500&q=80",
+  image: "/image/accessories-3.jpg",
   category: "accessories",
 },
 {
@@ -328,7 +337,7 @@ export const products = [
   name: "Backpack",
   price: 1499,
   oldPrice: 1999,
-  image: "https://images.unsplash.com/photo-1612831455547-36f0f65c6c8e?auto=format&fit=crop&w=500&q=80",
+  image: "/image/accessories-4.jpg",
   category: "accessories",
 },
 // -------- Electronics ----------
@@ -337,15 +346,31 @@ export const products = [
   name: "Wireless Earbuds",
   price: 2999,
   oldPrice: 3999,
-  image: "https://images.unsplash.com/photo-1585386959984-a4155225d9d2?auto=format&fit=crop&w=500&q=80",
+  image: "/image/electronics-1.jpg",
   category: "electronics",
 },
 {
   id: 802,
-  name: "Smartphone",
+  name: "Smart phone",
   price: 19999,
   oldPrice: 24999,
-  image: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=500&q=80",
+  image: "/image/electronics-2.jpg",
+  category: "electronics",
+},
+{
+  id: 803,
+  name: "Bluetooth Speaker",
+  price: 3999,
+  oldPrice: 4999,
+  image: "/image/electronics-3.jpg",
+  category: "electronics",
+},
+{
+  id: 804,
+  name: "Smart TV",
+  price: 8999,
+  oldPrice: 10999,
+  image: "/image/electronics-4.jpg",
   category: "electronics",
 },
 

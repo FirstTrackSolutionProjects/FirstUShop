@@ -7,43 +7,48 @@ import { ShoppingCartIcon, EyeIcon, XMarkIcon } from "@heroicons/react/24/outlin
 const CategoryPage = () => {
   const { slug } = useParams();
   const { addToCart, cart } = useCart();
-
   const [quickViewProduct, setQuickViewProduct] = useState(null);
 
   const isInCart = (id) => cart.some((item) => item.id === id);
 
-  const filteredProducts = products.filter((p) => p.category === slug);
+  const filteredProducts = products.filter(
+    (p) => p.category === slug
+  );
 
   return (
-    <div className="p-10">
-      <h1 className="text-3xl font-bold mb-6 capitalize">
+    <div className="px-4 sm:px-6 lg:px-12 py-8">
+      <h1 className="text-2xl sm:text-3xl font-bold mb-6 capitalize">
         {slug.replace("-", " ")}
       </h1>
 
-      {/* PRODUCT GRID */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+      {/* GRID */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 xl:grid-cols-4 gap-4 md:gap-6">
         {filteredProducts.length === 0 ? (
-          <p>No products found in this category.</p>
+          <p>No products found.</p>
         ) : (
           filteredProducts.map((product) => (
             <div
               key={product.id}
-              className="border p-4 rounded-lg shadow hover:shadow-lg transition relative"
+              className="bg-white rounded-xl border hover:shadow-lg transition group"
             >
-              {/* PRODUCT IMAGE */}
-              <div className="relative group">
+              {/* IMAGE */}
+              <div className="relative overflow-hidden rounded-t-xl">
                 <img
                   src={product.image}
-                  className="w-full h-48 object-cover rounded"
                   alt={product.name}
+                  onClick={() => setQuickViewProduct(product)}
+                  className="w-full h-44 sm:h-52 object-cover cursor-pointer
+                            transition-transform duration-300 group-hover:scale-105"
                 />
 
-                {/* QUICK VIEW BUTTON */}
+
+                {/* QUICK VIEW (DESKTOP HOVER) */}
                 <button
                   onClick={() => setQuickViewProduct(product)}
                   className="
-                    absolute top-2 right-2
-                    bg-white shadow p-2 rounded-full
+                    
+                    absolute top-3 right-3
+                    bg-white p-2 rounded-full shadow
                     opacity-0 group-hover:opacity-100
                     transition
                   "
@@ -52,32 +57,39 @@ const CategoryPage = () => {
                 </button>
               </div>
 
-              {/* TITLE */}
-              <h2 className="mt-3 font-semibold text-lg">{product.name}</h2>
+              {/* CONTENT */}
+              <div className="p-3 sm:p-4 flex flex-col">
+                <h2 className="font-semibold text-sm sm:text-base line-clamp-1">
+                  {product.name}
+                </h2>
 
-              {/* PRICE */}
-              <p className="text-gray-600 mt-1">
-                ₹{product.price}{" "}
-                <span className="line-through text-red-400">
-                  ₹{product.oldPrice}
-                </span>
-              </p>
+                <p className="mt-1 text-sm sm:text-base">
+                  <span className="font-bold text-gray-900">
+                    ₹{product.price}
+                  </span>
+                  {product.oldPrice && (
+                    <span className="ml-2 text-xs sm:text-sm line-through text-red-400">
+                      ₹{product.oldPrice}
+                    </span>
+                  )}
+                </p>
 
-              {/* ADD TO CART BUTTON */}
-              <button
-                onClick={() => addToCart(product)}
-                disabled={isInCart(product.id)}
-                className={`mt-4 w-full flex items-center justify-center gap-2 px-4 py-2 rounded-lg font-medium
-                  ${
-                    isInCart(product.id)
-                      ? "bg-gray-300 text-gray-700 cursor-not-allowed"
-                      : "bg-pink-600 text-white hover:bg-pink-700"
-                  }
-                `}
-              >
-                <ShoppingCartIcon className="h-5 w-5" />
-                {isInCart(product.id) ? "Added" : "Add to Cart"}
-              </button>
+                {/* ADD BUTTON */}
+                <button
+                  onClick={() => addToCart(product)}
+                  disabled={isInCart(product.id)}
+                  className={`mt-3 sm:mt-4 w-full py-2 rounded-lg flex items-center justify-center gap-2 text-sm font-medium
+                    ${
+                      isInCart(product.id)
+                        ? "bg-green-500 text-white cursor-not-allowed"
+                        : "bg-pink-600 text-white hover:bg-pink-700"
+                    }
+                  `}
+                >
+                  <ShoppingCartIcon className="h-4 w-4" />
+                  {isInCart(product.id) ? "Added ✓" : "Add to Cart"}
+                </button>
+              </div>
             </div>
           ))
         )}
@@ -85,55 +97,52 @@ const CategoryPage = () => {
 
       {/* QUICK VIEW MODAL */}
       {quickViewProduct && (
-        <div className="fixed inset-0 bg-black/50 flex justify-center items-center z-50 p-4">
-          <div className="bg-white w-full max-w-lg rounded-xl p-6 relative shadow-xl">
-            {/* Close button */}
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 px-3">
+          <div className="bg-white w-full max-w-md sm:max-w-lg rounded-2xl p-5 sm:p-6 relative">
             <button
               onClick={() => setQuickViewProduct(null)}
-              className="absolute top-3 right-3 bg-gray-200 p-1.5 rounded-full"
+              className="absolute top-3 right-3 bg-gray-100 p-2 rounded-full"
             >
               <XMarkIcon className="h-5 w-5" />
             </button>
 
-            {/* IMAGE */}
             <img
               src={quickViewProduct.image}
               alt={quickViewProduct.name}
-              className="w-full h-56 object-cover rounded-lg"
+              className="w-full h-52 sm:h-60 object-cover rounded-xl"
             />
 
-            <h2 className="text-2xl font-bold mt-4">
+            <h2 className="mt-4 text-xl sm:text-2xl font-bold">
               {quickViewProduct.name}
             </h2>
 
-            <p className="text-gray-700 mt-2">
-              {quickViewProduct.description || "No description available."}
+            <p className="text-gray-600 mt-2 text-sm">
+              {quickViewProduct.description ||
+                "Premium quality fashion product for everyday style."}
             </p>
 
-            <p className="text-xl font-semibold mt-3">
-              ₹{quickViewProduct.price}{" "}
-              <span className="line-through text-red-400 text-lg">
-                ₹{quickViewProduct.oldPrice}
-              </span>
+            <p className="mt-3 text-lg font-semibold">
+              ₹{quickViewProduct.price}
+              {quickViewProduct.oldPrice && (
+                <span className="ml-2 line-through text-red-400 text-base">
+                  ₹{quickViewProduct.oldPrice}
+                </span>
+              )}
             </p>
 
             <button
-              onClick={() => {
-                addToCart(quickViewProduct);
-                setQuickViewProduct(null);
-              }}
+              onClick={() => addToCart(quickViewProduct)}
               disabled={isInCart(quickViewProduct.id)}
-              className={`
-                mt-5 w-full px-4 py-2 rounded-lg flex items-center justify-center gap-2 
+              className={`mt-5 w-full py-2 rounded-lg flex items-center justify-center gap-2 font-medium
                 ${
                   isInCart(quickViewProduct.id)
-                    ? "bg-gray-300 text-gray-700"
+                    ? "bg-green-500 text-white cursor-not-allowed"
                     : "bg-pink-600 text-white hover:bg-pink-700"
                 }
               `}
             >
               <ShoppingCartIcon className="h-5 w-5" />
-              {isInCart(quickViewProduct.id) ? "Added" : "Add to Cart"}
+              {isInCart(quickViewProduct.id) ? "Added ✓" : "Add to Cart"}
             </button>
           </div>
         </div>

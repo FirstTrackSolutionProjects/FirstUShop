@@ -1,31 +1,27 @@
 import React, { useRef, useState, useEffect } from "react";
-import { Link } from "react-router-dom";   // ✅ ADD THIS
+import { Link } from "react-router-dom";   
 
-// ---- SLIDES DATA ----
 const slides = [
   {
-    image:
-      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=800&q=80",
+    image: "/image/promo1.jpg",
     title: "🔥 Mega Big Sale!",
     subtitle: "Up to 70% OFF on Best Categories",
     tag: "Limited Time Only ⏳",
-    type: "mega-sale", // ✅ ADD TYPE
+    type: "mega-sale",
   },
   {
-    image:
-      "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?auto=format&fit=crop&w=800&q=80",
+    image: "/image/promo2.jpg",
     title: "✨ New Winter Collection",
     subtitle: "Trendy Jackets • Hoodies • Sweatshirts",
     tag: "Shop the Latest →",
-    type: "winter", // ✅ ADD TYPE
+    type: "winter", 
   },
   {
-    image:
-      "https://images.unsplash.com/photo-1503602642458-232111445657?auto=format&fit=crop&w=800&q=80",
+    image: "/image/promo3.jpg",
     title: "🎁 Festival Special Offers",
     subtitle: "Buy 1 Get 1 • Combo Deals • Flash Sale",
     tag: "Today Only ⚡",
-    type: "festival", // ✅ ADD TYPE
+    type: "festival", 
   },
 ];
 
@@ -50,16 +46,16 @@ const PromoBanner = () => {
   }, [index]);
 
   return (
-    <div className="w-full rounded-3xl overflow-hidden shadow-lg mb-6">
+    <div className="w-full h-100 rounded-3xl overflow-hidden shadow-lg mb-6">
       <div
         ref={sliderRef}
-        className="w-full h-52 md:h-64 lg:h-72 flex overflow-x-auto snap-x snap-mandatory scrollbar-hide"
+        className="w-full md:h-64 lg:h-72 flex overflow-x-auto snap-x snap-mandatory scrollbar-hide"
       >
         {slides.map((slide, i) => (
           <Link
             key={i}
             to={`/promo?type=${slide.type}`}  // ✅ CLICKABLE SLIDE
-            className="min-w-full h-full snap-start relative flex-shrink-0"
+            className="w-full h-full snap-start relative flex-shrink-0"
           >
             <img src={slide.image} alt="banner" className="w-full h-full object-cover" />
 
