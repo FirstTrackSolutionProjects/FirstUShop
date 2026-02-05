@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaTshirt } from "react-icons/fa";
 
-const slides = [
+const defaultSlides = [
   {
     series: "The Minimalist Collection",
     title: "Effortless Style",
@@ -26,12 +26,54 @@ const slides = [
 const HeroShowcase = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState(1);
+  const [slides, setSlides] = useState(() => {
+    try {
+      const raw = localStorage.getItem("heroItems");
+      if (!raw) return defaultSlides;
+      const parsed = JSON.parse(raw);
+      return Array.isArray(parsed) && parsed.length ? parsed : defaultSlides;
+    } catch (e) {
+      return defaultSlides;
+    }
+  });
 
   // Auto slide every 5 seconds
   useEffect(() => {
     const interval = setInterval(() => paginate(1), 5000);
     return () => clearInterval(interval);
   }, [currentIndex]);
+
+  // listen for other tabs or admin updates
+  useEffect(() => {
+    const handler = (e) => {
+      if (e?.key === "heroItems") {
+        try {
+          const parsed = JSON.parse(e.newValue || "[]");
+          if (Array.isArray(parsed) && parsed.length) setSlides(parsed);
+          else setSlides(defaultSlides);
+        } catch (err) {
+          setSlides(defaultSlides);
+        }
+      }
+    };
+
+    const customHandler = () => {
+      try {
+        const raw = localStorage.getItem("heroItems");
+        const parsed = JSON.parse(raw || "[]");
+        setSlides(Array.isArray(parsed) && parsed.length ? parsed : defaultSlides);
+      } catch (err) {
+        setSlides(defaultSlides);
+      }
+    };
+
+    window.addEventListener("storage", handler);
+    window.addEventListener("heroItemsChanged", customHandler);
+    return () => {
+      window.removeEventListener("storage", handler);
+      window.removeEventListener("heroItemsChanged", customHandler);
+    };
+  }, []);
 
   const paginate = (newDirection) => {
     setDirection(newDirection);
@@ -42,6 +84,12 @@ const HeroShowcase = () => {
       return next;
     });
   };
+
+  // ensure currentIndex is valid when slides change
+  useEffect(() => {
+    if (!slides || slides.length === 0) return;
+    if (currentIndex >= slides.length) setCurrentIndex(0);
+  }, [slides, currentIndex]);
 
   const variants = {
     enter: (direction) => ({

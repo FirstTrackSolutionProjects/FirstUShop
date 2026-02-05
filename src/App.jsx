@@ -9,6 +9,10 @@ import Home from './pages/Home'
 import Contact from './pages/Contact'
 import Login from './pages/Login'
 import Register from './pages/Register'
+import Profile from './pages/Profile'
+// import EditProfile from './pages/EditProfile'
+import AdminDashboard from './pages/AdminDashboard'
+import AdminProfile from './pages/AdminProfile'
 import About from './pages/About'
 
 import Terms from './pages/Terms'
@@ -22,10 +26,19 @@ import Security from './pages/Security'
 import Explore from './pages/Explore'
 import PromoProducts from './pages/PromoProducts'
 import BudgetPage from './pages/BudgetPage'
+
 import CartPage from './pages/CartPage'
 import ProductDetails from './pages/ProductDetails'
 import Categorypage from './pages/Categorypage'
+import Wishlist from './pages/Wishlist'
 
+// Merchant and checkout pages
+import Checkout from './pages/Checkout'
+import MyOrdersPage from './pages/Merchant/MyOrders'
+import MerchantDashboard from './pages/Merchant/Dashboard'
+import MerchantProfile from './pages/Merchant/MyProfile'
+import MerchantAddresses from './pages/Merchant/MyAddresses'
+import TrackOrder from './pages/TrackOrder'
 import Watch from './pages/Watch'
 import Accessories from './pages/Accessories'
 import FootWear from './pages/FootWear'
@@ -54,6 +67,10 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/profile" element={<Profile />} />
+          {/* <Route path="/profile/edit" element={<EditProfile />} /> */}
+          <Route path="/admin" element={<AdminDashboard />} />
+          <Route path="/admin/profile" element={<AdminProfile />} />
           <Route path="/about" element={<About />} />
           <Route path="/aboutus" element={<Aboutus />} />
           <Route path="/security" element={<Security />} />
@@ -68,8 +85,19 @@ function App() {
           <Route path="/budget/:max" element={<BudgetPage />} />
 
           <Route path="/cart" element={<CartPage />} />
+          <Route path="/wishlist" element={<Wishlist />} />
+          <Route path="/checkout" element={<React.Suspense fallback={<div>Loading...</div>}><Checkout /></React.Suspense>} />
+          <Route path="/my-orders" element={<React.Suspense fallback={<div>Loading...</div>}><MyOrdersPage /></React.Suspense>} />
+      
           <Route path="/product/:id" element={<ProductDetails />} />
           <Route path="/category/:slug" element={<Categorypage />} />
+
+          {/* Merchant routes */}
+          <Route path="/merchant/dashboard" element={<React.Suspense fallback={<div>Loading...</div>}><MerchantDashboard /></React.Suspense>} />
+          <Route path="/merchant/profile" element={<React.Suspense fallback={<div>Loading...</div>}><MerchantProfile /></React.Suspense>} />
+          <Route path="/merchant/addresses" element={<React.Suspense fallback={<div>Loading...</div>}><MerchantAddresses /></React.Suspense>} />
+          <Route path="/merchant/orders" element={<React.Suspense fallback={<div>Loading...</div>}><MyOrdersPage /></React.Suspense>} />
+          <Route path="/track" element={<TrackOrder />} />
         
           <Route path="/foot" element={<FootWear />} />
           <Route path="/watch" element={<Watch />} />

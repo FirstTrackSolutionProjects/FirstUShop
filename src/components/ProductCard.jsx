@@ -1,16 +1,30 @@
 import React, { useContext, useState } from "react";
 import { CartContext } from "../context/CartContext";
 import { EyeIcon, ShoppingCartIcon } from "@heroicons/react/24/outline";
+import { HeartIcon as HeartOutline } from "@heroicons/react/24/outline";
+import { HeartIcon as HeartSolid } from "@heroicons/react/24/solid";
+import { useWishlist } from "../context/WishlistContext";
 
 const ProductCard = ({ item }) => {
   const { cart, addToCart } = useContext(CartContext);
+  const { wishlist, addToWishlist, removeFromWishlist } = useWishlist();
   const [showModal, setShowModal] = useState(false);
 
   const isAdded = cart.some((p) => p.id === item.id);
+  const isWished = wishlist.some((w) => w.id === item.id);
 
   return (
     <>
-      <div className="border rounded-xl p-3 shadow-sm hover:shadow-md transition">
+      <div className="relative border rounded-xl p-3 shadow-sm hover:shadow-md transition">
+        {/* WISHLIST TOGGLE */}
+        <button
+          onClick={() => (isWished ? removeFromWishlist(item.id) : addToWishlist(item))}
+          className="absolute top-3 right-3 p-2 bg-white rounded-full shadow z-10"
+          aria-label={isWished ? "Remove from wishlist" : "Add to wishlist"}
+        >
+          {isWished ? <HeartSolid className="w-5 h-5 text-red-500" /> : <HeartOutline className="w-5 h-5 text-gray-400" />}
+        </button>
+
         <img
           src={item.image}
           alt={item.name}
