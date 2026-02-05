@@ -23,7 +23,7 @@ const Contact = () => {
               </div>
               <div>
                 <h3 className="font-semibold">Company Name</h3>
-                <p className="text-gray-300">Creative Solutions Ltd.</p>
+                <p className="text-gray-300">Abc</p>
               </div>
             </div>
 

@@ -2,6 +2,7 @@ import React from 'react'
 
 import HeroShowcase from '../components/HeroShowcase'
 import Trending from '../components/Trending'
+import TrendingSearch from '../components/explore/TrendingSearch'
 import BestSelling from '../components/BestSelling'
 // import NewArrival from '../components/NewArrival'
 import Testimonials from '../components/Testimonials'
@@ -17,6 +18,7 @@ const Home = () => {
                 <Trending />
                 <TrendCollection/>
                 <BestSelling/>
+                <TrendingSearch compact />
                 {/* <NewArrival/> */}
                 <Testimonials/>
                 <WhyChooseUs/>

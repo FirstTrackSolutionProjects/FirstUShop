@@ -10,9 +10,7 @@ const Privacy = () => {
           <h1 className="text-4xl sm:text-5xl font-extrabold text-gray-900 tracking-tight">
             Privacy Policy
           </h1>
-          <p className="text-gray-500 mt-2 text-sm">
-            Last updated: October 26, 2023
-          </p>
+        
           <div className="w-20 h-1 bg-teal-500 mx-auto mt-4 rounded-full"></div>
         </header>
 

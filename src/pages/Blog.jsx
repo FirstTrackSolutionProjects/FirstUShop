@@ -10,7 +10,7 @@ const Blog = () => {
       title: "The Ultimate Guide to Fall 2025 Fashion",
       excerpt: "Discover the must-have jackets, boots, and color palettes for this autumn season.",
       date: "Oct 05, 2025",
-      readTime: "5 min read",
+      // readTime: "5 min read",
       imageUrl: "https://picsum.photos/seed/fallfashion/600/400",
       fullContent:
         "This fall is all about rich textures and bold silhouettes. We're seeing a return of classic trench coats, chunky-soled leather boots, and earthy tones like rust, olive, and deep burgundy. In this guide, we break down how to mix and match these key pieces to create stunning looks for any occasion, from a casual weekend outing to a formal evening event.",
@@ -20,7 +20,7 @@ const Blog = () => {
       title: "5 Ways to Style Your New Denim Jacket",
       excerpt: "From casual weekends to chic evenings, unlock the versatility of this timeless wardrobe staple.",
       date: "Sep 28, 2025",
-      readTime: "4 min read",
+      // readTime: "4 min read",
       imageUrl: "https://picsum.photos/seed/denimstyle/600/400",
       fullContent:
         "The denim jacket is more than just a piece of clothing; it's a canvas for your personal style. Pair it with a floral dress for a soft, feminine look, or go for an edgy vibe with black jeans and combat boots. We'll show you five curated outfits that prove a simple denim jacket can be the most versatile item in your closet.",
@@ -30,7 +30,7 @@ const Blog = () => {
       title: "Sneaker Spotlight: The Top Kicks of the Season",
       excerpt: "Check out the latest sneaker drops that combine comfort, style, and cutting-edge design.",
       date: "Sep 22, 2025",
-      readTime: "3 min read",
+      // readTime: "3 min read",
       imageUrl: "https://picsum.photos/seed/sneakers/600/400",
       fullContent:
         "Comfort is king, but style is everything. This season's top sneakers deliver both. From retro-inspired designs making a huge comeback to futuristic, minimalist silhouettes, there's a pair for every taste. We'll give you a closer look at the materials, technology, and style notes for the sneakers everyone is talking about right now.",
@@ -40,7 +40,7 @@ const Blog = () => {
       title: "How to Choose Eco-Friendly and Sustainable Brands",
       excerpt: "Make your wardrobe greener with our tips for conscious and responsible shopping.",
       date: "Sep 15, 2025",
-      readTime: "6 min read",
+      // readTime: "6 min read",
       imageUrl: "https://picsum.photos/seed/ecofriendly/600/400",
       fullContent:
         "Sustainable fashion is the future. But what does it really mean to shop consciously? This article helps you understand materials to look for, certifications that matter, and questions to ask before you buy. Learn how to build a stylish, long-lasting wardrobe that's kinder to our planet.",
@@ -50,7 +50,7 @@ const Blog = () => {
       title: "Accessorize Like a Pro: The Finishing Touches",
       excerpt: "Learn how the right accessories can elevate any outfit from simple to spectacular.",
       date: "Sep 05, 2025",
-      readTime: "4 min read",
+      // readTime: "4 min read",
       imageUrl: "https://picsum.photos/seed/accessories/600/400",
       fullContent:
         "Accessories are the secret weapon of the stylish. A statement necklace, a silk scarf, or a classic leather belt can completely transform your look. We explore the art of layering jewelry, choosing the right handbag, and how to use accessories to express your unique personality.",
@@ -60,7 +60,7 @@ const Blog = () => {
       title: "Get Ready: Our Annual Winter Sale is Coming!",
       excerpt: "A sneak peek at the incredible deals and collections that will be featured in our biggest sale of the year.",
       date: "Aug 29, 2025",
-      readTime: "2 min read",
+      // readTime: "2 min read",
       imageUrl: "https://picsum.photos/seed/sale/600/400",
       fullContent:
         "Mark your calendars! Our annual winter sale is just around the corner, and it's bigger than ever. Expect massive discounts on last season's favorites, exclusive bundles, and special offers on new arrivals. Get your wishlist ready and prepare to snag the best deals on coats, sweaters, and more!",
@@ -104,9 +104,9 @@ const Blog = () => {
                 {/* Date + Read time */}
                 <div className="flex justify-between items-center text-sm text-stone-500 mb-4">
                   <span>{post.date}</span>
-                  <span className="bg-stone-100 px-3 py-1 rounded-full">
+                  {/* <span className="bg-stone-100 px-3 py-1 rounded-full">
                     {post.readTime}
-                  </span>
+                  </span> */}
                 </div>
 
                 {/* Title */}

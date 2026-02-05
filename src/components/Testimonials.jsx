@@ -95,7 +95,7 @@ const Testimonials = () => {
                 <p className="text-gray-700 italic mb-4 text-lg leading-relaxed">
                   "{testimonialsData[currentIndex].quote}"
                 </p>
-                <h3 className="font-bold text-gray-900 text-xl">
+                <h3 className="font-bold text-gray-900 text-xl ">
                   {testimonialsData[currentIndex].name}
                 </h3>
                 <p className="text-green-600">{testimonialsData[currentIndex].title}</p>

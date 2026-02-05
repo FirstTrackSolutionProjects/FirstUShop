@@ -1,8 +1,60 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
 import { FcGoogle } from "react-icons/fc";
 
 const Login = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
+  const { login } = useAuth();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+
+    try {
+      let data;
+      try {
+        const res = await fetch("/api/auth/login", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email, password }),
+        });
+
+        data = await res.json();
+
+        if (!res.ok) throw new Error(data.message || "Login failed");
+
+        // persist via auth context (which also writes to localStorage)
+        login({ user: data.user, token: data.token });
+
+        // ADMIN vs USER REDIRECT
+        if (data.user.isAdmin) navigate('/admin');
+        else if (data.user.isMerchant) navigate('/merchant/dashboard');
+        else navigate('/profile');
+        return;
+      } catch (err) {
+        // fallback: check local users
+        const stored = JSON.parse(localStorage.getItem('users') || '[]');
+        const u = stored.find((s) => s.email === email && s.password === password);
+        if (!u) throw err;
+
+        // login locally
+        login({ user: { id: u.id, name: u.name, email: u.email, isMerchant: !!u.isMerchant }, token: 'local-token' });
+        if (u.isMerchant) navigate('/merchant/dashboard');
+        else navigate('/profile');
+        return;
+      }
+    } catch (err) {
+      console.error(err);
+      alert(err.message || "Login failed");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <div
       className="bg-cover bg-center min-h-screen font-sans"
@@ -20,82 +72,46 @@ const Login = () => {
             <p className="text-gray-600">Log in to continue</p>
           </div>
 
-          {/* Login Form */}
-          <form className="space-y-6">
-
-            {/* Email / Phone */}
+          {/* Form */}
+          <form className="space-y-6" onSubmit={handleSubmit}>
             <div className="relative">
               <span className="absolute top-1/2 -translate-y-1/2 left-3 text-xl">📧</span>
               <input
-                type="text"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                type="email"
                 required
-                placeholder="Email or Phone"
-                className="w-full pl-10 pr-4 py-3 bg-gray-100 border border-gray-200 rounded-lg 
-                text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 
-                focus:ring-indigo-500 focus:border-transparent transition duration-300"
+                placeholder="Email"
+                className="w-full pl-10 pr-4 py-3 bg-gray-100 border rounded-lg focus:ring-2 focus:ring-indigo-500"
               />
             </div>
 
-            {/* Password */}
             <div className="relative">
               <span className="absolute top-1/2 -translate-y-1/2 left-3 text-xl">🔒</span>
               <input
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
                 type="password"
                 required
                 placeholder="Password"
-                className="w-full pl-10 pr-4 py-3 bg-gray-100 border border-gray-200 rounded-lg 
-                text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 
-                focus:ring-indigo-500 focus:border-transparent transition duration-300"
+                className="w-full pl-10 pr-4 py-3 bg-gray-100 border rounded-lg focus:ring-2 focus:ring-indigo-500"
               />
             </div>
 
-            {/* Forgot Password */}
-            <div className="flex justify-end">
-              <button
-                type="button"
-                className="text-sm font-medium text-indigo-600 hover:text-indigo-800 transition"
-              >
-                Forgot Password?
-              </button>
-            </div>
-
-            {/* Submit */}
             <button
               type="submit"
-              className="w-full py-3 px-4 rounded-lg text-white font-semibold 
-              bg-gradient-to-r from-indigo-600 to-blue-500 hover:from-indigo-700 hover:to-blue-600 
-              shadow-lg transform hover:-translate-y-0.5 transition-all duration-300"
+              disabled={loading}
+              className="w-full py-3 rounded-lg text-white font-semibold 
+              bg-gradient-to-r from-indigo-600 to-blue-500 hover:opacity-90"
             >
-              Log In
+              {loading ? "Logging in..." : "Log In"}
             </button>
           </form>
 
-          {/* Divider */}
-          <div className="flex items-center justify-center">
-            <div className="border-b border-gray-300 w-full"></div>
-            <p className="px-4 text-sm text-gray-500">OR</p>
-            <div className="border-b border-gray-300 w-full"></div>
-          </div>
-
-          {/* Google Login */}
-          <button
-            type="button"
-            className="w-full flex items-center justify-center py-3 px-4 rounded-lg 
-            border border-gray-300 bg-white text-gray-700 shadow-sm hover:bg-gray-50 
-            transform hover:-translate-y-0.5 transition-all duration-300"
-          >
-            <FcGoogle className="text-2xl mr-3" />
-            Log in with Google
-          </button>
-
-          {/* Register Link */}
           <div className="text-center">
             <p className="text-sm text-gray-700">
               Don't have an account?{" "}
-              <Link
-                to="/register"
-                className="font-semibold text-indigo-600 hover:text-indigo-800 transition"
-              >
+              <Link to="/register" className="font-semibold text-indigo-600">
                 Create one
               </Link>
             </p>
